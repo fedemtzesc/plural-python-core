@@ -48,6 +48,8 @@
    El cual nos indicara que se puede mandar llamar tambien de la siguiente
    forma: help (objeto)... 
    Lo cual provocara que nos aparezca la documentacion relacionada a objeto
+   TIP: tambien podemos usar help(objeto.metodo) lo cual nos desplegara
+   informacion tecnica acerca del metoto del objeto.
 
 5. 
 
