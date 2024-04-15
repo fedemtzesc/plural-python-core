@@ -43,7 +43,13 @@
 
       nombre_modulo_o_clase.funcion_o_metodo
 
-4. 
+4. Para obtener ayuda acerca de los modulos u objetos que podemos usar
+   en python tecleamos el comando help...
+   El cual nos indicara que se puede mandar llamar tambien de la siguiente
+   forma: help (objeto)... 
+   Lo cual provocara que nos aparezca la documentacion relacionada a objeto
+
+5. 
 
 
 
