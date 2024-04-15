@@ -43,6 +43,20 @@
 
       nombre_modulo_o_clase.funcion_o_metodo
 
+   Si queremos usar solo el metodo tenemos que usar en vez del import:
+      from math import sqrt
+   
+   Y lo usariamos de la siguiente forma:
+   >>> x = sqrt(25)
+   >>> 5.0
+
+   Incluso si quisieramos acortar mas el nombre podriamos hacer lo siguiente:
+      from math import sqrt as sq
+
+   Y lo usariamos de la siguiente forma:
+   >>> x = sq(25)
+   >>> 5.0
+
 4. Para obtener ayuda acerca de los modulos u objetos que podemos usar
    en python tecleamos el comando help...
    El cual nos indicara que se puede mandar llamar tambien de la siguiente
