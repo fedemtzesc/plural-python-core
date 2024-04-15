@@ -41,7 +41,7 @@
    el uso del nombre del modulo seguido de un punto seguido del metodo
    o funcion que queremos utilizar.
 
-      nombre_modulo_o_clase.funcioo_o_metodo
+      nombre_modulo_o_clase.funcion_o_metodo
 
 4. 
 
