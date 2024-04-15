@@ -21,6 +21,31 @@
        ultimo resultado numerico obtenido.
        OJO: este truco solo funciona solo en el entorno de REPL
 
+2. Para poder ver el Zen de Python lo podemos hacer desde dentro
+   del REPL ejecutando el siguiente comando:
+      import this
+
+3. Para importar modulos o bibliotecas de clases en el REPL usamos
+   la palabra reservada import.
+
+   Ejemplo: Para importar el modulo matematico para poder usar la 
+   raiz cuadrada tecleamos
+
+   >>> import math
+
+   Y para usar alguno de los metodos o funciones se puede hacer así:
+   >>> x = math.sqrt(25)
+   >>> 5.0
+
+   Como podemos ver, la llamada al metodo o funcion se hace mediante 
+   el uso del nombre del modulo seguido de un punto seguido del metodo
+   o funcion que queremos utilizar.
+
+      nombre_modulo_o_clase.funcioo_o_metodo
+
+4. 
+
+
 
 
 
