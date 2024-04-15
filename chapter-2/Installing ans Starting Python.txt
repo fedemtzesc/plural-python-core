@@ -1,0 +1,23 @@
+1. Despues de instalar python en nuestro equipo:
+    a) Abrimos una terminal y tecleamos
+            python3
+    b) Esto nos mostrara el entorno de linea de comandos
+       de python el cual es un ciclo de lectura, evaluacion
+       e impresion...
+            Read
+            Evaluate
+            Print
+            Loop (para volver al estado inicial de espera)
+    c) El proceso anterior se conoce como REPL
+    d) Una vez abierto, el REPL nos mostrara un prompt
+       representado por >>> que nos indica que esta listo
+       para recibir un comando o cualquier otra cosa para
+       evaluar...
+    d) Una vez que recibe algun comando o expresion, lo 
+       evalua y arroja un resultado si la expresion es
+       evaluable
+
+       TRUCO: si tecleamos el underscore (_) imprimira el
+       ultimo resultado obtenido (siempre y cuando sea valido)
+
+
