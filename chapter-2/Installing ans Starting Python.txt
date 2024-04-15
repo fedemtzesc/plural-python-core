@@ -18,6 +18,9 @@
        evaluable
 
        TRUCO: si tecleamos el underscore (_) imprimira el
-       ultimo resultado obtenido (siempre y cuando sea valido)
+       ultimo resultado numerico obtenido.
+       OJO: este truco solo funciona solo en el entorno de REPL
+
+
 
 
