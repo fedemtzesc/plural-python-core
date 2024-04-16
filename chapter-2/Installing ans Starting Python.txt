@@ -81,8 +81,36 @@
          >>> int("10000", 3)     #Cadena numerica en base numerica 3
          81
 
-6. 
+6. Cualquier numero que se meta con punto decimal o en notacion cientifica 
+   python lo interpretara como un numero de coma flotante. Ejemplos:
+   a) .1
+   b) 3.1416
+   c) 1.23e3
+   d) 1.24e-3
+   NOTAS: 
+      REPL siempre imprimira la forma mas legible del numero
+      Cualquier operacion entre un flotante y un entero promovera
+      el resultado a un numero flotante
 
+7. La funcion float() sirve para convertir cualquier expresion valida en un numero
+   de coma flotante:
+   a) >>> float(7)
+      7
+   b) >>> float("1.618")
+      1.618
+   c) >>> float("nan")
+      nan
+   d) >>> float("inf") 'infinito positivo
+      inf
+      >>> float("-inf") 'infinito negativo
+      -inf
 
+8. La representacion de Null en Pythno es None y se usa así:
+   a) >>> a = None
+      >>> a  is None
+      True
 
-
+9. Como ver la svariables que he estado utilizando en el REPL:
+   a) dir() will give you the list of in-scope variables
+   b) globals() will give you a dictionary of global variables
+   c) locals() will give you a dictionary of local variables
