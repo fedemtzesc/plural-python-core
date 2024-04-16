@@ -138,3 +138,30 @@
          print("entra por aqui")
       else:
          print("salida!)
+
+12. Los tipos de colecciones que maneja Python son:
+	a) str		Cadena
+	b) bytes	Arreglos de bytes
+	c) list		Listas
+	d) dict		Diccionarios
+
+13. Para crear cadenas en bruto sin necesidad de usar
+    secuencias de escape:
+      >>> path = r'c:\users\Federico\pepa'
+      >>> path
+      'c:\\users\\Federico\\pepa'
+      >>> print(path)
+      c:\users\Federico\pepa
+
+   NOTA: sigue el principio de what You See Is What You Get (WYSIWYG)
+
+14. Las cadenas en python se denominan tipos de secuencia,
+    y admiten algunos tipos de operaciones ya que se toman
+    como arreglos, como en el siguiente ejemplo:
+      >>> s = 'parrot'
+      >>> s[4]
+      'o'
+    Si te fijas, pudimos obtener el caracter que se encuentra
+    en la quita posición.
+
+15. 
