@@ -133,7 +133,7 @@
    c) if "condicion multiple":
          print("entra por aqui")
       elif "otra condicion":
-         print("entra por est lado")
+         print("entra por aca")
       elif: "una condicion mas"
          print("entra por aqui")
       else:
