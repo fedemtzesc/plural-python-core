@@ -167,4 +167,53 @@
     en la quinta posición. Y despues determinar el tipo de 
     dato que es.
 
-15. 
+15. Para obtener ayuda acerca del objeto str tecleamos:
+      help(str)
+
+16. Las cadenas son objetos inmutables, por lo cual despues de 
+    utilizar los metodos de este tipo de datos el contenido 
+    original se conserva. Ejemplo:
+      >>> cadena = 'hola amigos como estan'
+      >>> cadena.capitalize()
+
+17. Si quiero mostrar caracteres unicode que sean emojis tengo
+    que utilizar la siguiente sintaxis:
+         \U + 000 + CODIGO_EMOJI
+      Por ejemplo el codigo unicode de pila de caca 💩 es U+1F4A9
+      el CODIGO_EMOJI seria 1F4A9.
+      => lo aplicariamos a la sintaxis para usarlo en python
+         que seria:
+         \U0001F4A9        OJO: la u tiene que ir en MAYUSCULAS
+      Entonces, para imprimirlo por medio de python tendriamos
+      que hacer algo como esto:
+      >>> print("\U0001F4A9")
+      💩
+
+      Si deseamos realizar obtener el codigo en el formato de 
+      unicode de un emoji, solo tenemos que usar estas instruccion
+      de ejemplo:
+         >>> x = '💩'
+         >>> print(x.encode('unicode-escape').decode('ASCII').upper())
+         \U0001F4A9
+
+18. Si quiero obtener un arreglo de bytes de una cadena se logra
+    mediante el uso del metodo encode(). Ejemplo:
+         >>> s.encode()
+         b'Hola Mundo'
+
+19. Si quiero el codigo ASCII de algun caracter de un arreglo bytes
+    se obtiene de la siguiente forma:
+         >>> s = "Hola Mundo"
+         >>> s[0].encode()
+         b'H'
+         >>> s[0].encode()[0]
+         72
+         >>> s[1].encode()[0]
+         111
+         >>> s[2].encode()[0]
+         108
+         >>> b = s.encode()
+         >>> b
+         b'Hola Mundo'
+         >>> b[0]
+         72
