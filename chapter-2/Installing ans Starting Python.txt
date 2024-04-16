@@ -116,10 +116,12 @@
    c) locals() will give you a dictionary of local variables
 
 10. Uso del metodo bool(...)
-   a) bool(1), bool("hola"), bool(.1) regresaran True
+   a) bool(1), bool("hola"), bool(.1) regresaran:
+            True
       Porque cualquier valor diferente de 0 o "" es Verdadero
       como en el lenguaje C
-   b) bool(0), bool("") siempre regresaran False por la misma
-      regla que se indica en el inciso a.
+   b) bool(0), bool(""), bool([]), bool({}), bool(()) regresaran:
+            False 
+      Por la misma regla que se indica en el inciso a.
 
 11. 
