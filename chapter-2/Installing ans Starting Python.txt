@@ -124,4 +124,17 @@
             False 
       Por la misma regla que se indica en el inciso a.
 
-11. 
+11. Tipos de if 
+   a) if "solitario de una unica cndicion":
+   b) if "condicion":
+         print("Hace algo")
+      else:
+         print("hace otra cosa")
+   c) if "condicion multiple":
+         print("entra por aqui")
+      elif "otra condicion":
+         print("entra por est lado")
+      elif: "una condicion mas"
+         print("entra por aqui")
+      else:
+         print("salida!)
