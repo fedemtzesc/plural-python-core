@@ -65,8 +65,23 @@
    TIP: tambien podemos usar help(objeto.metodo) lo cual nos desplegara
    informacion tecnica acerca del metoto del objeto.
 
-5. 
+5. El metodo int es muy versatil, ya que puede realizar:
+   a) Conversion de un entero en forma de cadena a numero entero:
+         >>>int("1234")
+         1234
+      OJO: NO funciona con cadenas que no son representacion de un entero
+         >>> int("1234.77")
+         Traceback (most recent call last):
+            File "<stdin>", line 1, in <module>
+         ValueError: invalid literal for int() with base 10: '1234.77'
+   b) Conversion a entero de una cadena que representa un numero en una base
+      numerica:
+         >>> int("1001001",2)    # Cadena binaria en base numerica 2 o binario
+         73
+         >>> int("10000", 3)     #Cadena numerica en base numerica 3
+         81
 
+6. 
 
 
 
