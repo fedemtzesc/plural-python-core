@@ -217,3 +217,15 @@
          b'Hola Mundo'
          >>> b[0]
          72
+         >>> b[1]
+         111
+         >>> b[2]
+         108
+         >>> b[3]
+         97
+
+20. Conversion entre Strings y Bytes
+      a) De string a bytes str.encode()
+      b) de bytes a string byte.decode()
+
+21. 
