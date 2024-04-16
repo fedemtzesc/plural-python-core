@@ -161,7 +161,10 @@
       >>> s = 'parrot'
       >>> s[4]
       'o'
+      >>> type(s[4])
+      <class 'str'>
     Si te fijas, pudimos obtener el caracter que se encuentra
-    en la quita posición.
+    en la quinta posición. Y despues determinar el tipo de 
+    dato que es.
 
 15. 
