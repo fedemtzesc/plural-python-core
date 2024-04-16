@@ -228,7 +228,7 @@
       a) De string a bytes str.encode()
       b) de bytes a string byte.decode()
 
-21. Las listas son otro tipo de colecciones que:
+21. Las Listas son otro tipo de colecciones que:
    a) Son mutables, esto es, que se pueden modificar, 
       quitar o poner elementos
    b) Pueden contener cualquier tipo de elementos
