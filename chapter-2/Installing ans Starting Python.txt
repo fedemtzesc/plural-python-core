@@ -228,4 +228,30 @@
       a) De string a bytes str.encode()
       b) de bytes a string byte.decode()
 
-21. 
+21. Las listas son otro tipo de colecciones que:
+   a) Son mutables, esto es, que se pueden modificar, 
+      quitar o poner elementos
+   b) Pueden contener cualquier tipo de elementos
+   c) Estan basados en indice 0
+   d) Tienen un constructor que se usa de la siguiente forma:
+      >>> lista = list("caracteres")
+      ['c', 'a', 'r', 'a', 'c', 't', 'e', 'r', 'e', 's']
+   e) Otra manera de modificarla es indicando el numero de indice en el 
+      cual se requiere hacer la modificacion
+      >>> lista = list("caracteres")
+      >>> lista
+      ['c', 'a', 'r', 'a', 'c', 't', 'e', 'r', 'e', 's']
+      >>> lista[0] = 'X'      'Aqui es donde se realiza el cambio en la lista
+      >>> lista
+      ['X', 'a', 'r', 'a', 'c', 't', 'e', 'r', 'e', 's']
+   f) La unica manera de agregar mas elementos a una lista es mediante el 
+      metodo append(...)
+      Ejemplo:
+      >>> lista.append('F')
+      >>> lista
+      ['X', 'a', 'r', 'a', 'c', 't', 'e', 'r', 'e', 's', 'F']
+   g) Se puede obtener el ultimo elemento de una lista mediante:
+      >>> lista[-1]
+      'F'   
+
+22. 
