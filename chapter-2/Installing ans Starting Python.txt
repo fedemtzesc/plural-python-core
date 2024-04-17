@@ -254,4 +254,47 @@
       >>> lista[-1]
       'F'   
 
-22. 
+22. Los diccionarios son colecciones de elementos en forma de par clave-valor
+    y tienen la siguiente sintaxis:
+    {clave1:valor1, clave2:valor2, . . . , claveN:valorN}
+    Este tipo de coleccion tiene las siguientes caracteristicas:
+    a) Es mutable
+    b) Mantiene el orden de insercion
+
+23. El bucle for en python tiene la siguiente sintexis:
+      for item in iterable:
+         ... body ...
+
+24. Ejemplo de uso del bucle for para una lista:
+      >>> ciudades = ['monterrey','guadalajara','reynosa','cdmx','jalisco','tijuana']
+      >>> ciudades
+      ['monterrey', 'guadalajara', 'reynosa', 'cdmx', 'jalisco', 'tijuana']
+      >>> for ciudad in ciudades:
+      ...     print(ciudad)
+      ... 
+      monterrey
+      guadalajara
+      reynosa
+      cdmx
+      jalisco
+      tijuana
+
+25. Ejemplo de uso de for para un diccionario:
+      >>> colors={'crimson':'0xdc143c','coral':'0xff7f50','teal':'0x008080'}
+      >>> for color in colors:
+      ...     print(color, colors[color])
+      ... 
+      crimson 0xdc143c
+      coral 0xff7f50
+      teal 0x008080
+   Si cambio los valores del diccionario a numericos en la impresion me saldra
+   su valor equivalente en entero:
+      >>> colors={'crimson':0xdc143c,'coral':0xff7f50,'teal':0x008080}
+      >>> for color in colors:
+      ...     print(color, colors[color])
+      ... 
+      crimson 14423100
+      coral 16744272
+      teal 32896
+
+26. 
