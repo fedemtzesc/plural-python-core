@@ -297,4 +297,21 @@
       coral 16744272
       teal 32896
 
-26. 
+26. Ejemplo de uso de una coleccion tipo lista para ir a traer las palabras
+    de una pagina web:
+      >>> from urllib.request import urlopen
+      >>> story = urlopen('http://sixty-north.com/c/t.txt')
+      >>> story_words = []
+      >>> for line in story:
+      ...     line_words = line.split()
+      ...     for word in line_words:
+      ...         story_words.append(word)
+      ... 
+      >>> story.close()
+      >>> story_words
+      [b'It', b'was', b'the', b'best', b'of', b'times', b'it', b'was', b'the', b'worst', b'of', b'times', b'it', b'was', b'the', b'age', b'of', b'wisdom', b'it', b'was', b'the', b'age', b'of', b'foolishness', b'it', b'was', b'the', b'epoch', b'of', b'belief', b'it', b'was', b'the', b'epoch', b'of', b'incredulity', b'it', b'was', b'the', b'season', b'of', b'Light', b'it', b'was', b'the', b'season', b'of', b'Darkness', b'it', b'was', b'the', b'spring', b'of', b'hope', b'it', b'was', b'the', b'winter', b'of', b'despair', b'we', b'had', b'everything', b'before', b'us', b'we', b'had', b'nothing', b'before', b'us', b'we', b'were', b'all', b'going', b'direct', b'to', b'Heaven', b'we', b'were', b'all', b'going', b'direct', b'the', b'other', b'way', b'in', b'short', b'the', b'period', b'was', b'so', b'far', b'like', b'the', b'present', b'period', b'that', b'some', b'of', b'its', b'noisiest', b'authorities', b'insisted', b'on', b'its', b'being', b'received', b'for', b'good', b'or', b'for', b'evil', b'in', b'the', b'superlative', b'degree', b'of', b'comparison', b'only']
+      NOTA: Para este ejemplo nos debemos de asegurar que la indentacion sea de 4
+            caracteres por que si no, nos va a fallar y se tendra que teclear de
+            nuevo todo.
+
+27. 
