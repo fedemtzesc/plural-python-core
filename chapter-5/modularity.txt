@@ -25,5 +25,42 @@
     b) Cuando se manda llamar desde otro modulo, tomara el valor de su nombre 
        de archivo pero sin los dounder's (__ guiones bajos al inicio y al fin)
 
-5. EL MODELO DE EJECUCION DE PYTHON:
-    
+5. Formas de hacer una importacion de un modulo y sus elementos:
+    a) Esta es la forma mas simple e importa todos los elementos del modulo
+            import nombre_modulo
+    b) Esta forma importa un unico elemento del modulo
+            from nombre_modulo import nombre_elemento    
+    c) Esta forma importa varios elementos del modulo
+            from nombre_modulo import n_e1, n_e2, . . . , n_eN
+       Otra forma de hacerlo es usando parentesis cuandoo los elementos son muchos
+       y se requiere por lo mismo hacer saltos de línea:
+            from nombre_modulo import (n_e1, n_e2, . . . , 
+                                       n_e(N-1), n_e(N)
+
+6. Uso de alias para abreviar nombres de elementos de modulos o nombres de modulos:
+    a) Si queremos usar un nombre mas corto para el nombre de un modulo podemos hacer
+       lo siguiente:
+            import nombre_largo_de_modulo_que_no_queremos_usar as nomcorto
+            ó
+            from nombre_largo_de_modulo_que_no_queremos_usar as nomcorto import (nombre_variable, 
+                                                                                 nombre_funcion, 
+                                                                                 nombre_clase)
+       Y lo usariamos de la siguiente forma para llamar a alguno de sus elementos:
+            nomcorto.nombre_valiable    Para mandar llamar a una de sus variables
+            nomcorto.nombre_funcion()   Para mandar llamar a una de sus funciones
+            nomcorto-nombre_clase()     Para mandar llamar a una de sus clases
+    b) Si necesitamos usar un nombre corto para un elemento o elementos de modulo lo
+       lograremos de la siguiente forma:
+            from nombre_modulo import nombre_largo_elemento as nocoel   #nocoel significa nombre corto de elemento
+            ó
+            from nombre_largo_de_modulo_que_no_queremos_usar as nomcorto import (nombre_variable as nv, 
+                                                                                 nombre_funcion as nf, 
+                                                                                 nombre_clase as nc)
+        Y los usariamos de la siguiente forma:
+            nombre_modulo.nocoel
+            ó
+            nomcorto.nv     Para usar la variable
+            nomcorto.nf     Para usar la funcion
+            nomcorto.nc     Para usar la clases
+
+7. 
