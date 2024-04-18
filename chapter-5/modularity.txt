@@ -17,10 +17,13 @@
         >>> launch_misiles()
         Missiles launched!
         >>> 
-        
+
 3. Una funcion que no retorna un valor siempre va a retornar None
 
 4. La variable global __name__ varia en su contenido en los siguientes casos:
     a) Cuando se llama directamente el archivo tomara el valor '__main__'
     b) Cuando se manda llamar desde otro modulo, tomara el valor de su nombre 
        de archivo pero sin los dounder's (__ guiones bajos al inicio y al fin)
+
+5. EL MODELO DE EJECUCION DE PYTHON:
+    

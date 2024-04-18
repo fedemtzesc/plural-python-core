@@ -1,7 +1,7 @@
 from urllib.request import urlopen
 from time import sleep
 from os import system
-from modulo1 import potencias_y_ordinales as po
+from modulos import potencias_y_ordinales as po
 
 
 def fetch_words():
@@ -26,5 +26,6 @@ def fetch_words():
         print(word)  
     print('\n')
 
-
-po.display_nht_root(25,2)
+if __name__ == '__main__':
+    fetch_words()
+    po.display_nht_root(25,2)

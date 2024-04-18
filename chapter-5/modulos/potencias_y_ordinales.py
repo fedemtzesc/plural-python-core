@@ -28,6 +28,7 @@ def display_nht_root(radicand, n):
     message = "The " + ordinal(n) + " root of " \
               + str(radicand) + " is " + str(root)
     print(message)
+    print('__name__ = ', __name__)
 
 
 
