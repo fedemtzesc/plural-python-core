@@ -313,5 +313,10 @@
       NOTA: Para este ejemplo nos debemos de asegurar que la indentacion sea de 4
             caracteres por que si no, nos va a fallar y se tendra que teclear de
             nuevo todo.
+            Si queremos ver las palabras como string y no como un valor codificado en binario
+            tenemos que cambiar la instruccion:
+               line_words = line.split()
+            por:
+               line_words = line.decode('utf8').split()
 
 27. 

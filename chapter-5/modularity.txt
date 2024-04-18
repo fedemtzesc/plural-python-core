@@ -1,0 +1,19 @@
+1. Para ejecutar un arhivo de python dentro del REPL:
+    a) Entramos al REPL con el siguiente comando:
+        python3
+    b) Le hacemos el import a nuestro archivo *.py
+        import words 
+    c) El archivo se ejecutara inmediatamente
+
+2. Formas de crear y utilizar funciones en python:
+        >>> def square(x):
+        ...     return x * x
+        ... 
+        >>> square(5)
+        25
+        >>> def launch_misiles():
+        ...     print('Missiles launched!')
+        ... 
+        >>> launch_misiles()
+        Missiles launched!
+        >>> 
