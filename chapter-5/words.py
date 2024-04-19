@@ -1,10 +1,26 @@
+#!/usr/bin/python3
+
+'''Retrieve and print words from a URL
+
+Usage:
+    python3 words.py <URL>
+'''
 from urllib.request import urlopen
 from time import sleep
 from os import system
 import sys
 
 
-def fetch_words(url):        
+def fetch_words(url):  
+    '''Fetch a list of words from a URL 
+    
+        Args:
+            url: The URL of a UTF-8 text document
+
+        Returns:
+            A list of strings containing the words from
+            the document    
+    '''      
     story = urlopen(url)
     story_words = []
     for line in story:
@@ -15,11 +31,21 @@ def fetch_words(url):
     story.close()
     return story_words
 
+
 def print_items(items):
+    '''Print items one per line.
+        Args:
+            An iterable series of printable items
+    '''
     for item in items:
         print(item)  
 
+
 def main(url):
+    '''Print each word from a text documen from at URL
+        Args:
+            url: The URL of a UTF-8 text document
+       '''
     # try:
     #     if len(sys.argv) <= 1:
     #         #print(sys.argv[0])  # El primer elemento de argv contiene el nombre del archivo
@@ -35,6 +61,6 @@ def main(url):
     words = fetch_words(url)
     print_items(words)
 
+
 if __name__ == '__main__':
-    main(sys.argv[1])
-    
+    main(sys.argv[1])   # El indice 0 de argv es el nombre del archivo

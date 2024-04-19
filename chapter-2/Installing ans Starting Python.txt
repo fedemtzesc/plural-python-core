@@ -319,4 +319,16 @@
             por:
                line_words = line.decode('utf8').split()
 
-27. 
+27. Shebang es una caracteristica de Linux, Unix y MAC que le permiten decirle al sistema operativo que programa
+    puede procesar dicho archivo y ejecutarlo, como se hace con los archivos sh por ejemplo.
+
+    Para el caso de un archivo de python se especifica al tope del archivo la siguiente linea:
+         #!/usr/bin/python3
+
+    Y una vez que el archivo tiene este shebang tenemo que usar:
+         chmod +x nombre_archivo.py 
+   
+    Para hacerlo ejecutable y el interprete de python lo localize para ejecutarlo.
+         ./nombre_archivo.py arg1 arg2 . . . argN
+
+28. 
