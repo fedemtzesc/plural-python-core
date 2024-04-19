@@ -65,4 +65,26 @@
             nomcorto.nf     Para usar la funcion
             nomcorto.nc     Para usar la clases
 
-7. 
+7. Para documentar se utilioza lo que se llama 'docstrings' que no es mas que comentarios 
+   en formato de bloque con la siguiente informacion de ejemplo:
+
+   Para el modulo completo:
+        '''Retrieve and print words from a URL
+
+        Usage:
+            python3 words.py <URL>
+        '''
+
+    Para sus funciones:
+        '''Fetch a list of words from a URL 
+        
+            Args:
+                url: The URL of a UTF-8 text document
+
+            Returns:
+                A list of strings containing the words from
+                the document    
+        '''   
+    Una vez que se documenta el modulo se puede ver su documentacion en el REPL de esta forma:
+        >>> import nombre_modulo
+        >>> help(nombre_modulo)
