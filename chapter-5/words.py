@@ -1,10 +1,11 @@
 from urllib.request import urlopen
 from time import sleep
 from os import system
+import sys
 
 
-def fetch_words():
-    story = urlopen('http://sixty-north.com/c/t.txt')
+def fetch_words(url):        
+    story = urlopen(url)
     story_words = []
     for line in story:
         line_words = line.decode('utf8').split()    # Como la salida HTTP regresa bytes el resultado llega en binario por eso se decodifica a utf8
@@ -14,13 +15,25 @@ def fetch_words():
     story.close()
     return story_words
 
-def print_words(story_words):
-    for word in story_words:
-        print(word)  
+def print_items(items):
+    for item in items:
+        print(item)  
 
-def main():
-    words = fetch_words()
-    print_words(words)
+def main(url):
+    # try:
+    #     if len(sys.argv) <= 1:
+    #         #print(sys.argv[0])  # El primer elemento de argv contiene el nombre del archivo
+    #         print('ARGUMENTOS INVALIDOS')
+    #         system('sleep 5')
+    #         url = 
+    #     else:
+    #         url = sys.argv[1]
+    # except Exception as ex:
+    #     print("Ha habido una excepción", type(ex))
+    #     return
+
+    words = fetch_words(url)
+    print_items(words)
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1])

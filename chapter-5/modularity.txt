@@ -28,6 +28,8 @@
 5. Formas de hacer una importacion de un modulo y sus elementos:
     a) Esta es la forma mas simple e importa todos los elementos del modulo
             import nombre_modulo
+            o su equivalente:
+            from nombre_modulo imports *
     b) Esta forma importa un unico elemento del modulo
             from nombre_modulo import nombre_elemento    
     c) Esta forma importa varios elementos del modulo
