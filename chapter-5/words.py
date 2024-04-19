@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+# el de arriba es el Shebang
 '''Retrieve and print words from a URL
 
 Usage:
