@@ -1,0 +1,56 @@
+1. Todo en Python es un objeto, y cada objeto tiene un id unico, 
+    el cual se obtiene mediante el uso de la funcion:
+        id(nombre_objeto)
+    
+    Al parecer la funcion id() regresa la posicion en memoria del
+    objeto al que apunta la variable.
+
+2. Python no maneja variables primitivas sino que usa nombres 
+   de referencias que apuntan a objetos en memoria.
+
+3. Dos objetos pueden contener los mismos valores pero apuntando
+   a diferentes espacios en memoria:
+    >>> p = [2,4,6]
+    >>> q = [2,4,6]
+    >>> p==q
+    True
+    >>> p is q
+    False
+    >>> p == p
+    True
+    >>> p is p
+    True
+
+4.  En el siguiente caso, aunque se pasa por referencia la lista a la
+    funcion, la variable original sigue apuntando a la lista original:
+            >>> f = [14,23,37]
+            >>> def replace(g):
+            ...     g = [5,4,3]
+            ...     print("g(",id(g),") =",g)
+            ... 
+            >>> replace(f)
+            g( 4311237824 ) = [5, 4, 3]
+            >>> f
+            [14, 23, 37]
+            >>> id(f)
+            4311051520
+    Esto es por que el argumento formal g se RE-APUNTO a un objeto NUEVO
+    por lo cual el argumento actual que es f se deja apuntando a el 
+    objeto al que apuntaba originalmente.
+
+5.  Los argumentos de funciones son pasados por referencia. Esto significa
+    que lo que se pasa como argumento es una copia de la referencia del 
+    objeto original al que se esta apuntando. Como en el ejemplo anterior:
+        a) Se paso como argumento ei id(f)
+        b) Esto significa que id(g) == id(f) es True
+        c) Pero como luego le reasignamos a g un objeto nuevo con:
+            g = [5,4,3]
+        eso hace que a g se le reasigne ahora una nueva referencia que 
+        pertenece al nuevo arreglo que se creo y al que se le hizo apuntar,
+        y por tando id(g) y id(f) dejan de ser iguales por que ahora
+        apuntan a objetos diferentes:
+            i)  f sigue apuntando a la lista original
+            ii) g ahora apunta a la lista nueva que se creo dentro de la funcion
+        
+6.  
+    
