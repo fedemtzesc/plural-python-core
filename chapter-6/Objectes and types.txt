@@ -52,5 +52,29 @@
             i)  f sigue apuntando a la lista original
             ii) g ahora apunta a la lista nueva que se creo dentro de la funcion
         
-6.  
+6.  TRUCO
+        Para repetir una cadena n veces podemos usar esta instruccion:
+            >>> line = cad * ntimes
+            >>> print(line)
+    EJEMPLO:
+        >>> cad = '-'
+        >>> line = cad * 10
+        >>> cad
+        '-'
+        >>> line
+        '----------'
+        >>> len(line)
+        10
+        >>> cad = 'xx'
+        >>> line = cad * 10
+        >>> line
+        'xxxxxxxxxxxxxxxxxxxx'
+        >>> len(line)
+        20
+        >>> 
+
+7. En las definiciones de las funciones, los parametros opcionales siempre van
+   despues de los parametros NO opcionales para que no haya error de sintaxis.
+
+8. 
     
