@@ -20,6 +20,8 @@
     True
     >>> p is p
     True
+    NOTA: el operador 'is' sirve para comparar refrencias de objetos,
+    para saber si dos objetos apuntan a la misma referencia
 
 4.  En el siguiente caso, aunque se pasa por referencia la lista a la
     funcion, la variable original sigue apuntando a la lista original:

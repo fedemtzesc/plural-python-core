@@ -18,8 +18,9 @@ def banner(message, border='-'):
             A pretty and elegant header with borders
     '''
     line = border * len(message)
+    line = border + line + border
     print("\t",line)
-    print("\t",message)
+    print("\t ",message)
     print("\t",line)
 
 
