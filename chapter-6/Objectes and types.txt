@@ -78,5 +78,7 @@
 7. En las definiciones de las funciones, los parametros opcionales siempre van
    despues de los parametros NO opcionales para que no haya error de sintaxis.
 
-8. 
+8. Las declaraciones de tipos de datos no son necesarias en Python
+
+9. 
     
