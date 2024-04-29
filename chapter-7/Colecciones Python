@@ -1,0 +1,98 @@
+1.  Las tuplas son secuencias inmutables de todo tipo de objetos.
+    a)  Los objetos dentro de ellas no se pueden reemplazr o eliminar
+    b)  No se pueden agregar nuevos elementos
+    c)  Tienen un parecido a las listas con la diferencia de usar parentesis
+        en vez de corchectes como delimitadores.
+    d)  Tambien se crean y se accesan de forma similar a las listas:
+            >>> t = ("Norway", 4.56, 3)
+            >>> t
+            ('Norway', 4.56, 3)
+            >>> t[1]
+            4.56
+            >>> t[2]; t[0]
+            3
+            'Norway'
+            >>> len(t)
+            3
+
+    e)  Podemos iterar con ellas usando el ciclo for:
+            >>> for i in t:
+            ...     print(i)
+            ... 
+            Norway
+            4.56
+            3
+    f)  Tambien podemos concatenarle otra tupla para extenderla
+        >>> t + ("otro", "segmento", "de", "tupla", "concatenado")
+        ('Norway', 4.56, 3, 'otro', 'segmento', 'de', 'tupla', 'concatenado')
+    g)  Y repetirla usando el operador de multipicacion:
+            >>> t * 2
+            ('Norway', 4.56, 3, 'Norway', 4.56, 3)
+            >>> t * 3
+            ('Norway', 4.56, 3, 'Norway', 4.56, 3, 'Norway', 4.56, 3)
+    h)  Podemos crear tuplas anidadas, o arreglos de tuplas dentro de una tupla:
+            >>> a = ((1,2),(3,4),(5,6))
+            >>> a
+            ((1, 2), (3, 4), (5, 6))
+        Y accesar sus valores mediante indices:
+            ((1, 2), (3, 4), (5, 6))
+            >>> a[1][1]
+            4
+            >>> a[2][0]
+            5
+            >>> a[0]
+            (1, 2)
+    i) Especificamos una tupla vacia de la siguiente manera:
+            >>> e = ()
+    j)  Si queremos especificar uina tupla de un solo valor entero:
+        no lo hacemo así:
+            >>> h = (1973)
+        porque python lo interpreta como un entero con parentesis
+        con orden de presedencia de una operacion matematica:
+            >>> type(h)
+            <class 'int'>
+    k)  La forma correcta de crear una tupla de un solo elemento seria de la siguiente
+        forma:
+            >>> h = (1973,)
+            >>> h
+            (1973,)
+            >>> type(h)
+            <class 'tuple'>
+    l)  En muchos casos se pueden omitir los parentesis:
+            >>> p = 1,2,3,4,5,6
+            >>> p
+            (1, 2, 3, 4, 5, 6)
+            >>> type(p)
+            <class 'tuple'>
+    m)  El DESEMPAQUETADO DE TUPLAS consiste en asignarle un nombre a cada valor de una
+        tupla devuelta en una funcion, como en el siguiente ejemplo:
+            >>> min_max((1,2,3,5,8,13,21,))
+            (1, 21)
+            >>> menor, mayor= min_max((1,2,3,5,8,13,21,))
+            >>> menor
+            1
+            >>> mayor
+            21
+        El desempaquetado funciona incluso hasta con tuplas anidadas:
+            >>> (a,(b,(c,d)))=(4, (3,(2,1)))
+            >>> a; b; c; d
+            4
+            3
+            2
+            1
+    n)  Un uso muy comun del desempaquetado es para intercambiar valores de una manera muy 
+        sencilla como se muestra en el ejemplo:
+            >>> a = 'jelly'
+            >>> b = 'bean'
+            >>> a, b = b, a
+            >>> a; b
+            'bean'
+            'jelly'
+    o)  Existe una funcion incorporada en python que nos permite convertir otras colecciones
+        en tuplas:
+            >>> tuple([5,4,3,2,1])
+            (5, 4, 3, 2, 1)
+            >>> tuple('Federico')
+            ('F', 'e', 'd', 'e', 'r', 'i', 'c', 'o')
+
+2.  
