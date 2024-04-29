@@ -80,5 +80,54 @@
 
 8. Las declaraciones de tipos de datos no son necesarias en Python
 
-9. 
-    
+9. Para que una funcion haga refrencia a una variable global dentro de si misma
+    se tiene que utilizar la palabra clabe "global" antes de la definicion de la
+    variable con el mismo nombe que la variable global a la que queremos hacer
+    referencia, como en el siguiente ejemplo:
+
+        >>> def set_count(c):
+        ...     global count
+        ...     count = c
+    donde count esta definida a nivel modulo de forma global.
+
+10. ****** MOMENTO ZEN *******
+    Special cases aren't special enough to break the rules...
+    Los casos especiales no lo son tanto como para romper las reglas...
+    - Seguimos patrones
+    - No para matar la complejidad
+    - Sino para dominarla
+
+11. Si revisamos el tipo de un modulo (archivo) de pyton importado
+    obtendremos lo siguiente:
+        >>> type(words)
+        <class 'module'>
+
+12. Si queremos ver los atributos de dicho modulo podemos usar la funcion
+    integrada dir(), como en el siguiente ejemplo:
+        >>> dir(words)
+        ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', 
+        '__package__', '__spec__', 'fetch_words', 'main', 'print_items', 'sleep', 'sys', 
+        'system', 'urlopen']
+        >>> 
+    Tambien podemos ver el tipo de objeto de una de sus funciones asi:
+        >>> type(words.fetch_words)
+        <class 'function'>
+
+    Y tambien podemos ver los atributos de una funcion usando la misma funcion dir():
+        >>> dir(words.fetch_words)
+        ['__annotations__', '__builtins__', '__call__', '__class__', '__closure__', '__code__',
+        '__defaults__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__',
+        '__ge__', '__get__', '__getattribute__', '__getstate__', '__globals__', '__gt__', '__hash__',
+        '__init__', '__init_subclass__', '__kwdefaults__', '__le__', '__lt__', '__module__', 
+        '__name__', '__ne__', '__new__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', 
+        '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
+
+        Y podemos ver algunos de estos atributos de la funcion de la siguiente forma:
+        >>> words.fetch_words.__name__
+        'fetch_words'
+        >>> words.fetch_words.__doc__
+        'Fetch a list of words from a URL \n    \n        Args:\n            url: The URL of a UTF-8 text document\n\n        
+        Returns:\n            A list of strings containing the words from\n            the document    \n    '
+        >>> 
+
+13. 
