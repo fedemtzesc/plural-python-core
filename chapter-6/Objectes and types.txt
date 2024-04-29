@@ -129,5 +129,3 @@
         'Fetch a list of words from a URL \n    \n        Args:\n            url: The URL of a UTF-8 text document\n\n        
         Returns:\n            A list of strings containing the words from\n            the document    \n    '
         >>> 
-
-13. 
