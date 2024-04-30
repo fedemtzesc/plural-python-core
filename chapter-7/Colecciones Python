@@ -95,4 +95,55 @@
             >>> tuple('Federico')
             ('F', 'e', 'd', 'e', 'r', 'i', 'c', 'o')
 
-2.  
+2.  Las cadenas tambien son secuencias pero de caracteres, son inmutables tambien. Cuando se
+    concatenan no quiere decir que se haya extendido la cadena original, sino que por la misma
+    inmutabilidad se tiene que crear una cadena nueva que es la representacion de la cadena
+    original con la que se le concateno.
+    A continuacion vamos a ver algunas operaciones que podemos realizar con las cadenas usando
+    funciones incorporadas de python:
+    a)  Obtener la longitud de una cadena:
+            >>> len(cadena)
+            >>> regresa la longitud en caracreres contenidos en cadena
+    b)  Concatenacion con metodo join()
+        Esta funcion nos permite concatenar los elementos de una coleccion dada como argumento
+        separados por medio del caracter o cadena que se especifique al inicio de la llamada a 
+        la funcion join como en los ejemplos siguientes:
+            >>> ";".join(['#214365','#547698','#325443','#879832',]) #usando una lista
+            '#214365;#547698;#325443;#879832'
+            >>> " : ".join(('#214365','#547698','#325443','#879832',)) # usando una tupla
+            '#214365 : #547698 : #325443 : #879832'
+            >>> " | ".join({'#214365','#547698','#325443','#879832',}) # usando un set
+            '#214365 | #879832 | #547698 | #325443'
+    c)  Tambien podemos volverlos a separar mediante el uso de la funcion incorporada split():
+            >>> colors.split(';')
+            ['#214365', '#547698', '#325443', '#879832']
+    d)  Una forma elegante de contactenar cadenas sin un separador es usando la fucnion join con 
+        cadena vacia al inicio:
+            >>> ''.join(['Federico','Martinez','Escamilla',])
+            'FedericoMartinezEscamilla'
+    e)  Otra funcion muy util es partition() que separa una cadena en 3 partes dentro de una tupla:
+        a)  La parte anterior al separador
+        b)  La parte que corresponde al separador
+        c)  Y la parte posterior al separador
+        Veamos el ejemplo funcional de esta funcion:
+            >>> 'Federico Martinez Escamilla'.partition('Martinez')
+            ('Federico ', 'Martinez', ' Escamilla')
+    f)  El metodo partition se usa muy comunmente para el desempaquetado de la tupla que regresa
+        como se muestra a continuación:
+            >>> llegada, separador, desde = 'Monterrey:CDMX'.partition(':')
+            >>> llegada
+            'Monterrey'
+            >>> desde
+            'CDMX'
+        Tambien podemos usar el guin bajo para desempaquetar ahi el caracter separador que no vamos
+        a utilizar:
+            >>> origen, _, destino = 'MTY-CLN'.partition('-')
+            >>> origen
+            'MTY'
+            >>> destino
+            'CLN'
+            >>> _
+            '-'
+
+            
+3.  
