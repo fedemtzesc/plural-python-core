@@ -95,4 +95,26 @@
             >>> tuple('Federico')
             ('F', 'e', 'd', 'e', 'r', 'i', 'c', 'o')
 
-2.  
+2.  La cadena es una secuencia mas de los tipos incorporados de Python. La cual es inmutable,
+    esto significa que si le concatenamos otra cadena a una cadena, no es que se haya modificado
+    sino que fue creado otro objeto nuevo que contiene las dos cadenas a concatenar. Ademas de
+    la concatenacion podemos realizar otras operaciones como:
+    a)  Concatenacion por medio de la funcion incorporada join(...)
+            >>> colors = ';'.join(['#45ff23','#2321fa','#1298a3',])
+            >>> colors
+            '#45ff23;#2321fa;#1298a3'
+            >>> colors = ';'.join(('#45ff23','#2321fa','#1298a3',))
+            >>> colors
+            '#45ff23;#2321fa;#1298a3'
+            >>> colors = ';'.join({'#45ff23','#2321fa','#1298a3',})
+            >>> colors
+            '#2321fa;#45ff23;#1298a3'
+        Como podemos ver, la forma de indicar el separador de lo que vamos a juntar se hace de una
+        manera muy particular que es indicando primeramente el separador a utilizar seguido de la 
+        llamada al metodo join y entre parentesis la secuencia de items que vamos a juntar usando 
+        el separador que es un string, no necesariamente un unico caracter.
+    b)  Para despues poder separarlos de nuevo usando el metodo split como el ejemplo que viene a
+        continuacion:
+            >>> colors = ';;'.join({'#45ff23','#2321fa','#1298a3',})
+            >>> colors.split(';;')
+            ['#2321fa', '#45ff23', '#1298a3']
