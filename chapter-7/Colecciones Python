@@ -144,6 +144,47 @@
             'CLN'
             >>> _
             '-'
-
-            
-3.  
+    g)  El formateo de cadenas de puede realizar de diferentes maneras que se presentaran a 
+        continuación por medio de ejemplos:
+            >>> "{0}°north {1}°east".format(59.7, 10.4)
+            '59.7°north 10.4°east'
+            >>> "La edad de {0} es de {1} años".format('Fede', 50)
+            'La edad de Fede es de 50 años'
+            >>> "La edad de {0} es de {1} años. Y {0} es muy guapo!".format('Fede', 50)
+            'La edad de Fede es de 50 años. Y Fede es muy guapo!'
+            >>> "Numeros Fibonacci: {},{},{},{},{},{}...".format(0,1,1,2,3,5)
+            'Numeros Fibonacci: 0,1,1,2,3,5...'
+            >>> "Me llamo {nom} {ape}".format(nom='Federico', ape='Martinez')
+            'Me llamo Federico Martinez'
+            >>> "Mi posicion en R3 es x={pos[0]}, y={pos[1]}, z={pos[2]}".format(pos=(1,9,73))
+            'Mi posicion en R3 es x=1, y=9, z=73'
+            >>> import math
+            >>> "Constantes: pi={m.pi}, e={m.e}".format(m=math)
+            'Constantes: pi=3.141592653589793, e=2.718281828459045'
+            >>> "Constantes: pi={m.pi:.3f}, e={m.e:.3f}".format(m=math)
+            'Constantes: pi=3.142, e=2.718'
+    h)  Para hacer mas simple lo anterior, PEP498 introdujo lo que se llama f-string para 
+        interpolacion de cadenas. A continuación unos ejemplos:
+            >>> f"uno mas uno es {1+1}"
+            'uno mas uno es 2'
+            >>> value = 4 * 20
+            >>> f"El valor es {value}"
+            'El valor es 80'
+            >>> import datetime
+            >>> f"The current time is {datetime.datetime.now().isoformat()}"
+            'The current time is 2024-05-01T14:13:54.606998'
+            >>> f"Constantes matematicas: pi={math.pi}, e={math.e}"
+            'Constantes matematicas: pi=3.141592653589793, e=2.718281828459045'
+            >>> f"Constantes matematicas: pi={math.pi:.3f}, e={math.e:.3f}"
+            'Constantes matematicas: pi=3.142, e=2.718'
+            >>> 
+      
+3.  Los objetos range son secuencias que representan una progresion aritmetica 
+    de enteros:
+        >>> range(5)
+        range(0, 5)
+        >>> range(5,2)
+        range(5, 2)
+        >>> range(5,2,2)
+        range(5, 2, 2)
+        >>> 
