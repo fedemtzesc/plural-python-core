@@ -190,6 +190,28 @@
     Tambien podemos obtener una lista de un range():
         >>> list(range(8))
         [0, 1, 2, 3, 4, 5, 6, 7]
+    Significado de los rangos segun su cantidad de argumentos:
+    range(stop)                 Si solo tiene un argumento, este significa el numero donde parará
+    range(start, stop)          Si tiene 2 argumentos el primero es el de inicio y el ultimo de parada
+    range(start, stop, step)    Si tiene 3, el primero es inicio, el segundo parada, y el tercero el brinco
 
+4.  La funcion enumerate() genera tuplas de (indice,valor) a partir de cualquier coleccion como en 
+    los siguientes ejemplos:
+        >>> lst = [13, 17, 23, 31]
+        >>> for tup in enumerate(lst):
+        ...     print(tup)
+        ... 
+        (0, 13)
+        (1, 17)
+        (2, 23)
+        (3, 31)
+    Y podemos aplicarle tambien el desempacado de tupla como en siguiente ejemplo:
+        >>> for cve, val in enumerate(lst):
+        ...     print(f"cve={cve}    val={val}")
+        ... 
+        cve=0    val=13
+        cve=1    val=17
+        cve=2    val=23
+        cve=3    val=31
 
-
+5.  
