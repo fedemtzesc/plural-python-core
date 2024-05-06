@@ -356,3 +356,173 @@
                 ['el', 'de', 'mi', 'Soy', 'una', 'que', 'por', 'una', 'anda', 'cola', 'parte', 'bosque', 'buscando', 'serpiente']
                 En este ejemplo, se ordeno por longitud cada una de las cadenas de la lista.
 
+6.  DICCIONARIOS
+    Los diccionarios son secuencias o arreglos de elementos de tipo clave : valor sin ningun orden en particular
+    y con la caracteristica de que las claves son valores unicos e inmutables mientras que los valores si pueden 
+    se mutables:
+        >>> urls = {'Google' : 'https://google.com',
+        ...          'Pluralsight' : 'http://pluralsight.com',
+        ...          'Azure' : 'http://azure.com', }
+        >>> urls
+        {'Google': 'https://google.com', 'Pluralsight': 'http://pluralsight.com', 'Azure': 'http://azure.com'}
+        >>> urls['FDXSOFT']='http://fdxsoft.com.mx'
+        >>> urls
+        {'Google': 'https://google.com', 'Pluralsight': 'http://pluralsight.com', 'Azure': 'http://azure.com', 'FDXSOFT': 'http://fdxsoft.com.mx'}
+        >>> urls['FDXSOFT']='http://fdxsoft.com'
+        >>> urls
+        {'Google': 'https://google.com', 'Pluralsight': 'http://pluralsight.com', 'Azure': 'http://azure.com', 'FDXSOFT': 'http://fdxsoft.com'}
+    Como puede ver, podemos modificar un valor de una misma llave, pero no la llave en si. Y para agregar un nuevo elemento
+    usamos el nombre del diccionario seguido del nombre de la nueva clave entre corchetes  igualado todo al nuevo valor.
+    
+    Las claves de un diciconario son CASE-SENSITIVE, por lo cual no podemos mandar llamar un valor de un diccionario si
+    no metemos exactamente igual la clave como se definio originalmente, el ejemplo siguiente nos demuestra esto:
+        >>> urls['fdxsoft']    # Como metimos la clave con minusculas y no con MAYSCULAS como la original, nos arroja un error
+        Traceback (most recent call last):
+        File "<stdin>", line 1, in <module>
+        KeyError: 'fdxsoft'
+        >>> urls['FDXSOFT']     # Si metemos el nombre correcto de la clave existente en el diccionario, se nos mostrara su valor
+        'http://fdxsoft.com'
+
+    Para crear nuevos diccionarios en Python existe la funcion dict(). A continuacion veamos algunas formas de utilizarlo:
+        # A partir de una lista de tuplas
+        >>> lst = [('UNO',1),('DOS',2),('TRES',3)]
+        >>> d_nums = dict(lst)
+        >>> d_nums
+        {'UNO': 1, 'DOS': 2, 'TRES': 3}
+        # A partir de una tupla de tuplas
+        >>> tup = (('FEDE',1973),('LICHA',1974),('YOLA',1978))
+        >>> d_nac = dict(tup)
+        >>> d_nac
+        {'FEDE': 1973, 'LICHA': 1974, 'YOLA': 1978}
+        # Creacion de un diccionario de manera directa
+        >>> directo = dict(a='alfa', b='beta', g='gamma')
+        >>> directo
+        {'a': 'alfa', 'b': 'beta', 'g': 'gamma'}
+        # A partir de un set de tuplas
+        >>> my_set = {('FEDE',1973),('LICHA',1974),('YOLA',1978)}
+        >>> my_set
+        {('FEDE', 1973), ('YOLA', 1978), ('LICHA', 1974)}
+        >>> st = dict(my_set)
+        >>> st
+        {'FEDE': 1973, 'YOLA': 1978, 'LICHA': 1974}
+        # A partir de una tuplas de set's
+        >>> tup = ({'FEDE',1973},{'LICHA',1974},{'YOLA',1978})
+        >>> tup
+        ({'FEDE', 1973}, {'LICHA', 1974}, {1978, 'YOLA'})
+        >>> tp  = dict(tup)
+        >>> tp
+        {'FEDE': 1973, 'LICHA': 1974, 1978: 'YOLA'}
+        # De aquí, podemos copiar el diccionario:
+        >>> tp_cpy
+        {'FEDE': 1973, 'LICHA': 1974, 1978: 'YOLA'}
+        # Podemos pasar un diccionaro existente al constructor y asignarlo
+        >>> tp_cpy2 = dict(tp_cpy)
+        >>> tp_cpy2
+        {'FEDE': 1973, 'LICHA': 1974, 1978: 'YOLA'}
+        # Podemos crecer o extender nuestro diccionario con el metodo update()
+        # Asignandole un diccionario directamente
+        >>> st.update({'SEBAS':11, 'VALE':11, 'XIME':9})
+        >>> st
+        {'FEDE': 1973, 'YOLA': 1978, 'LICHA': 1974, 'SEBAS': 11, 'VALE': 11, 'XIME': 9}
+        # O asignandole una referencia a otro diccionario
+        >>> st.update(directo)
+        >>> st
+        {'FEDE': 1973, 'YOLA': 1978, 'LICHA': 1974, 'SEBAS': 11, 'VALE': 11, 'XIME': 9, 'a': 'alfa', 'b': 'beta', 'g': 'gamma'}
+        # Y finalmente podemos usar el metodo update() como su nombre lo dice, 
+        # para actualizar elementos de un diccionario
+        >>> directo
+        {'a': 'alfa', 'b': 'beta', 'g': 'gamma'}
+        >>> directo.update({'a':'ALFA'})
+        >>> directo
+        {'a': 'ALFA', 'b': 'beta', 'g': 'gamma'}
+    Los diccionario son iterables como se muestra a continuacion:
+        >>> colors = dict(aquamarine='#7FFFD4', burlywood='#DEB0887',
+        ...               chartreuse='#7FFF00', cornflower='#6495ED',
+        ...               firebrick='#B22222', honeydew='#F0FFF0',
+        ...               maroon='#B03060', sienna='#A0522D')
+        >>> for key in colors:
+        ...     print(f"{key} => {colors[key]}")
+        ... 
+        aquamarine => #7FFFD4
+        burlywood => #DEB0887
+        chartreuse => #7FFF00
+        cornflower => #6495ED
+        firebrick => #B22222
+        honeydew => #F0FFF0
+        maroon => #B03060
+        sienna => #A0522D
+    Existe una forma elegante de imprimir un diccionario utilizando la biblioteca pprint:
+        >>> m
+        {'H': [1, 2, 3, 4, 5, 6, 7], 'He': [3, 4], 'Li': [7, 9, 10], 'Be': [6, 7], 'B': [10, 11], 'C': [4, 5, 6, 7]}
+        >>> from pprint import pprint as pp
+        >>> pp(m)
+        {'B': [10, 11],
+        'Be': [6, 7],
+        'C': [4, 5, 6, 7],
+        'H': [1, 2, 3, 4, 5, 6, 7],
+        'He': [3, 4],
+        'Li': [7, 9, 10]}
+
+7.  Los set's es una coleccion desordenada de elementos unicos o irrepetibles. Podemos 
+    aplicar sobre este tipo de secuencias las siguientes operaciones:
+    a)  Creacion de un set mediante sl contructor de la funcion incorporada set()
+        el cual puede crear set's a partir de cualquier objeto iterable:
+        >>> x = set([9,8,7,6,5,])   # A partir de una lista
+        >>> x
+        {5, 6, 7, 8, 9}
+        >>> y = set((1,2,3,4))      # A partir de una tupla
+        >>> y
+        {1, 2, 3, 4}
+        >>> z = set({1:2,3:4,5:6})  # A partir de un diccionario (por default, toma las llaves)
+        >>> z
+        {1, 3, 5}
+        >>> w = set({1:2,3:4,5:6}.values()) # Si ocupas los elementos se hace esto
+        >>> w
+        {2, 4, 6}
+    b)  Y tambien se pueden crear de manera directa usando la sintaxis de set's que es
+        igualar el nombre del set a una secuencia de valores encerrados entre llaves:
+        >>> my_set = {1,2,3,4,5,6,7,8,9,0}
+        OJO: si hacemos lo siguiente:
+            >>> my_set = {}
+        estamos creando un diccionario vacio no un set vacio, para crear un set vacio se hace esto:
+            >>> my_set = set()
+    c)  Por supuesto, un set tambien puede ser iterable usando la estructura de control for:
+            >>> x
+            {5, 6, 7, 8, 9}
+            >>> for i in x:
+            ...     print(i)
+            ... 
+            5
+            6
+            7
+            8
+            9
+    d)  Para agregarle un elemento nuevo usamos el metodo add():
+            >>> x.add(100)
+            >>> x
+            {100, 5, 6, 7, 8, 9}
+    e)  Tambien podemos agregar mas elementos al set utilizando el metodo update():
+            >>> x.update([200,201,202])
+            >>> x
+            {100, 5, 6, 7, 8, 9, 200, 201, 202}
+    f)  Podemos eliminar elementos usando el metodo remove():
+            >>> x.remove(201)
+            >>> x
+            {100, 5, 6, 7, 8, 9, 200, 202}
+        Solo hay que asegurarse que el elemento que se esta eliminando
+        exista dentro del set, ya que si no, nos disparara un error:
+            >>> x.remove(501)
+            Traceback (most recent call last):
+            File "<stdin>", line 1, in <module>
+            KeyError: 501
+    g)  Existe otro metodo para eliminar elementos pero que no causa error
+        en el caso de que el elemento no exista en la lista:
+            >>> x.discard(500)
+            >>> #No paso nada
+            >>> x.discard(500)
+            >>> #No paso nada a pesar de que 500 no existe en el set x
+            >>> x
+            {100, 5, 6, 7, 8, 9, 200, 202}
+            >>> x.discard(100) # Pero si el elemento existe dentro del set...
+            >>> x
+            {5, 6, 7, 8, 9, 200, 202}   # Lo elimina sin problema
