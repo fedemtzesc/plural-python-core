@@ -195,8 +195,8 @@
     range(start, stop)          Si tiene 2 argumentos el primero es el de inicio y el ultimo de parada
     range(start, stop, step)    Si tiene 3, el primero es inicio, el segundo parada, y el tercero el brinco
 
-4.  La funcion enumerate() genera tuplas de (indice,valor) a partir de cualquier coleccion como en 
-    los siguientes ejemplos:
+4.  La funcion enumerate() genera una lista de tuplas de (indice,valor) a partir de cualquier coleccion 
+    como en los siguientes ejemplos:
         >>> lst = [13, 17, 23, 31]
         >>> for tup in enumerate(lst):
         ...     print(tup)
@@ -538,4 +538,53 @@
             set()
             >>> type(e)
             <class 'set'>
-        
+    j)  Como los sets son representaciones de conjuntos matematicos es posible
+        aplicar sobre estos las operaciones de conjuntos:
+            >>> positivos; negativos; pares; impares; todos
+            {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+            {0, -1, -9, -8, -7, -6, -5, -4, -3, -2}
+            {0, 2, 4, 6, 8}
+            {1, 3, 5, 7, 9}
+            >>> todos = positivos.union(negativos)
+            >>> todos
+            {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, -2, -9, -8, -7, -6, -5, -4, -3, -1}
+            >>> positivos.intersection(negativos)
+            {0}
+            >>> pares.intersection(todos)
+            {0, 2, 4, 6, 8}
+            >>> impares.intersection(todos)
+            {1, 3, 5, 7, 9}
+            >>> todos.difference(positivos)
+            {-1, -9, -8, -7, -6, -5, -4, -3, -2}
+            >>> todos.difference(negativos)
+            {1, 2, 3, 4, 5, 6, 7, 8, 9}
+            >>> positivos.difference(pares)
+            {1, 3, 5, 7, 9}
+            >>> impares.issubset(todos)
+            True
+            >>> todos.issuperset(negativos)
+            True
+            >>> todos.isdisjoint(positivos)
+            False
+            >>> pares.isdisjoint(impares)       # disjoint significa que no tienen ningun elemento en comun
+            True
+
+8.  PROTOCOLOS. Son un conjunto de operaciones que un cierto tipo debe soportar
+        para implementar el protocolo. No necesitan ser definidas como interfases
+        o clases base como en C# o JAVA. Los tipos solo necesitan proveer 
+        implementaciones funcionales.
+        A continuacion se muestra una tabla de protocolos aplicables a los tipos de
+        secuencias que hemos visto hasta ahora:
+
+    PROTOCOLO           IMPLEMENTING COLLECTION                     EXPLICACION DEL PROTOCOLO
+    =================   =========================================   =================================================
+    Container           str, list, dict, range, tuple, set, bytes   item in containes, item not in container
+    Sized               str, list, dict, range, tuple, set, bytes   len(container), que se puede determinar su tamaño
+    Iterable            str, list, dict, range, tuple, set, bytes   que puedan usarse en bucles
+    Sequence            str, list, range, tuple, bytes              [indice], index(item), .count(item), reversed() 
+    Muttable Sequence
+    Mutable Set 
+    Muttable Mapping
+
+
+
