@@ -1,0 +1,16 @@
+1.  Manejo de Excepciones. Es un mecanismo que sirve para
+    interrumpir el flujo normal del programa y continuar en 
+    algun contexto rodeado o bloque de codigo que majejara
+    dicha interrupcion.
+
+2.  Conceptos claves:
+    i)  Levantar una excepción
+    ii) Manejo de una Excepcion
+    iii)Excepción no controlada
+    iv) Objetos de Excepción
+
+3.  Python no permite codigosde bloque vacios ya que puede
+    generar las siguientes Excepciones:
+        * IntentationError
+        * SyntaxError
+        * NameError
