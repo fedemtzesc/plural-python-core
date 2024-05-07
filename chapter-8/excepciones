@@ -9,8 +9,13 @@
     iii)Excepción no controlada
     iv) Objetos de Excepción
 
-3.  Python no permite codigosde bloque vacios ya que puede
+3.  Python no permite codigos de bloque vacios ya que puede
     generar las siguientes Excepciones:
         * IntentationError
         * SyntaxError
         * NameError
+
+4.  Para que un bloque de codigo vacio no levante una excepcion 
+    se usa la palabra pass en dicho bloque, que es como un no-op
+
+
