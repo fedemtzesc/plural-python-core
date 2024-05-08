@@ -9,13 +9,31 @@
     iii)Excepción no controlada
     iv) Objetos de Excepción
 
-3.  Python no permite codigos de bloque vacios ya que puede
-    generar las siguientes Excepciones:
+3.  Las excepciones provenientes de errores del programador:
         * IntentationError
         * SyntaxError
         * NameError
+    Casi nunca deberian ser cachadas.
 
-4.  Para que un bloque de codigo vacio no levante una excepcion 
-    se usa la palabra pass en dicho bloque, que es como un no-op
+4.  Para que cuando un bloque de codigo contenga una linea vacia,
+    sin codigo, no levante una excepcion se usa la palabra pass 
+    en dicho bloque, en dicha linea, que es como un no-op o 
+    no operation line, una linea sin operacion.
 
-
+5.  El formato de una excepcion es el siguiente:
+    try:
+        bloque
+        de
+        codigo
+    except (TipoError1[,TipoError2, . . . ,TipoErrorN]) as e:
+        lo que se tiene
+        que hacer para
+        manejar el error
+    except OtroError:
+        tambien se puede usar
+        un except por cada Tipo
+        de Error. O un renglon 
+        por cada except
+    
+6.  
+    
