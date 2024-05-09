@@ -35,5 +35,27 @@
         de Error. O un renglon 
         por cada except
     
-6.  
-    
+6.  Para elevar una excepcion y replicarla hacia arriba en las 
+    llamadas se utiliza la palabra clave "raise"
+
+7.  No es para nada recomendable degresar codigos numericos cuando ocurre 
+    alguna excepcion. Es mejor usar raise para que levante la excepcion 
+    y manejarla en el nivel siguiente superior.
+
+8.  Existe un formato para mostrar el contenido de una excepcion cuando
+    ocurre, a continuacion se muestra
+
+9.  Tipos de Excepciones mas comunes:
+    * IndexError    Cuando se hace referencia a un indice que sobre pasa el indice mayor de la lista
+    * ValueError    Cuando se introduce un objeto permitido pero su contenido es inapropiado. Ejemplo:
+                    >>> int("hola")
+    * KeyError      Cuando la busqueda dentro de un mapa falla. Ejemplo:
+                    >>> codes = dict(fdx=73, li=78, yol=78)
+                    >>> codes
+                    {'fdx': 73, 'li': 78, 'yol': 78}
+                    >>> codes['fdx']
+                    73
+                    >>> codes['vale']
+                    Traceback (most recent call last):
+                    File "<stdin>", line 1, in <module>
+                    KeyError: 'vale'
