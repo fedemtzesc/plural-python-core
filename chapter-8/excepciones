@@ -59,3 +59,47 @@
                     Traceback (most recent call last):
                     File "<stdin>", line 1, in <module>
                     KeyError: 'vale'
+
+10. LBYL vs EAFP. Solo hay dos enfoques para lidiar con una operación de programa
+    que podria fallar:
+    a)  Check All preconditions     Checar que las condiciones previas para una 
+                                    operacion propensa a fallas se cumplan antes
+                                    de intentar la operacion.
+    b)  Prepare for consequences    Esperar ciegamente lo mejor, pero estar preparado
+                                    para enfrentar las consecuencias si no funciona
+    En python estas dos filosofias se conocen como:
+    a)  LBYL
+        Look Before you leap                    Mira antes de saltar
+    b)  EAFP
+        Easy to Ask Forgivenes than Permission  Es mas facil pedir perdon que permiso
+    respectivamente, y Python esta fuertemente a favor de: 
+    EAFP   Porque pone la logica primaria para el camino feliz en su forma mas legible
+            con desviaciones del flujo normal manejadas por separado en lugar de 
+            intercalarlas con el flujo principal.
+    Esto debido a que:
+    i.      Las excepciones no son tan facilmente ignoradas, por que saltan a la vista
+    ii.     Los Codigos de Error son silenciosos por default y por lo mismo, dificiles 
+            de detectar, y faciles de ignorar.
+    iii.    Las Excepciones junto con EAFP hacen mas dificil para los problemas el ser
+            silenciosamente ignorados.
+
+11. Formato try, catch, except, else... finally
+        try:
+            # bloque try
+        except Error1:
+            # tratamiento del error 1
+        except Error2:
+            # Tratamiendo del error 2
+            .
+            .
+            .
+        except ErrorN:
+            # Tratamiento del error N
+        except Exception as e:
+            # Tratamiento generico
+        else:
+            # Se ejecuta si no falla el try
+        finally:
+            # Se ejecuta no importa si
+            # el bloque try falla o no
+12. 
