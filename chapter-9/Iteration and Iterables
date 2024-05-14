@@ -1,0 +1,140 @@
+1.  Las Comprehensions son sintaxis concisas para describir listas,
+    sets y diccionarios en un estilo declarativo o funcional.
+    i) Son facilmente leibles y expresivas
+    ii) Casi se leen como un lenguaje natural
+
+    Las comprensiones son mas faciles de explicar con ejemplos:
+    a)  En el siguiente ejemplo crearemos una lista de palabras,
+        para posteriormente generar de esta otra lista que 
+        corresponda a las longitudes de cada una de las cadenas
+        de la primera lista:
+        >>> words = "Say I love you is want to hear from you i notihng I love you".split()
+        >>> words
+        ['Say', 'I', 'love', 'you', 'is', 'want', 'to', 'hear', 'from', 'you', 'i', 'notihng', 'I', 'love', 'you']
+        >>> # Y a continuacion viene la comprension que genera la lista de longitudes
+        >>> [len(word) for word in words]   # En la primera parte el metodo len() definira lo que se quiere obtener
+        [3, 1, 4, 3, 2, 4, 2, 4, 4, 3, 1, 7, 1, 4, 3]   # para generar la nueva lista...
+
+    b)  El siguiente ejemplo tambien obtiene la longitud de cadena de los
+        primeros 20 numeros al los cuales se les aplica la funcion factorial
+        contenida en la biblioteca math:
+        >>> from math import factorial as fac
+        >>> f = [ len(str(fac(x))) for x in range(20) ]
+        >>> f
+        [1, 1, 1, 1, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 18]
+
+    c)  Tambien podemos crear un set utilizando una sintaxis parecida pero en
+        vez de utilizar los [] de una lista utilizaremos los {} de un set:
+        >>> s = { len(str(fac(x))) for x in range(20) }
+        >>> type(s)
+        <class 'set'>
+        >>> s
+        {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 18}
+        Y como se puede ver, se eliminan los elementos repetidos por que el 
+        set no los admite.
+
+    d)  Entonces, la sintaxis de una conmprehension de lista es la siguiente:
+        Primeramente se podria decir que se divide en dos partes encerradas 
+        entre corchetes []:
+        [funcion_de_definicion_de_la_nueva_lista for_para_iterar_cada_elememto_del_cual_se_generara_nueva_lista]
+        Despues usando una sintaxis mas programatica:
+        [ expr(item) for item in items ]
+        NOTA: La expr que produce los nuevos elementos de la lista puede ser cualquier
+        expresion de python
+
+    e)  La sintaxis de una conmprehension de set es la siguiente:
+        Primeramente se podria decir que se divide en dos partes encerradas 
+        entre llaves {}:
+        {funcion_de_definicion_de_la_nueva_lista for_para_iterar_cada_elememto_del_cual_se_generara_nueva_lista}
+        Despues usando una sintaxis mas programatica:
+        { expr(item) for item in items }
+        NOTA: La expr que produce los nuevos elementos de la lista puede ser cualquier
+        expresion de python
+
+    f)  Y la sintaxis para una comprension de diccionario seria la siguiente:
+
+        {
+            key_expr(item) : value_expr(item)
+            for item in iterable
+        }
+        El siguiente ejemplo lo explicaremos por pasos:
+        PASO 1:
+        # Creamos el diccionario a partir del cual le aplicaremos la
+        # comprehension para generar el nuevo diccionario.
+        # El diciconario a partir del cual partimos es uno para el cual
+        # la clave es el nombre de la persona y el valor sus apellidos
+        >>> nombres_derechos = { 'Federico':'Martinez Escamilla',
+        ...                      'Maria Yolanda' : 'Belmares Carrizales',
+        ...                      'Valeria Estefania': 'Martinez Belmares',
+        ...                      'Sebastian Alejandro' : 'Ramos Belmares',
+        ... 
+                            }
+        PASO 2:
+        # Una vez creado el diccionario base creamos la comprehension. 
+        # El diccionario resultante es un conjunto clave:valor pero con los
+        # apellidos en la clave y los nombres en el valor para poder utilizarlos
+        # en algun documento formal donde se requiere ese formato:
+            # Asignacion       | Expresion     | Obtenemos los valores usando la tecnica de 
+            #                  | en la expr    | descompresion de tuplas ya que la funcion
+            #                  | definimos la  | items() nos devuelve tuplas de 2 valores
+            #                  | clave:valor   | al aplicarla a un diccionario
+        >>> nombres_formales = { apellido:nombre for nombre,apellido in nombres_derechos.items() }
+        PASO 3: 
+        # Finalmente procedemos a imprimir el nuevo diccionario para comprobar que 
+        # aplicamos correctamente nuestra comprehension:
+        >>> nombres_formales
+        {'Martinez Escamilla': 'Federico', 'Belmares Carrizales': 'Maria Yolanda', 'Martinez Belmares': 'Valeria Estefania', 'Ramos Belmares': 'Sebastian Alejandro'}
+
+    g)  El grado de complejidad de la expresion no esta limitado y puede ser tan compleja como se 
+        desee pero hay que tener cuidado de no sobrepasarse por que lo que se busca es la simplicidad
+        y que los compañeros programadores puedan entender nuestro codigo.
+        A continuacion un ejemplo con un grado de complejidad alto que obtiene los paths de los archivos 
+        python en el directorio actual como claves y sus longitudes como valores:
+            >>> import os
+            >>> import glob
+            >>> file_sizes = { os.path.realpath(p): os.stat(p).st_size for p in glob.glob('*.py') }
+            >>> from pprint import pp
+            >>> pp(file_sizes)
+            {'/Users/federicomartinezescamilla/cursos/python/plural-python-core/chapter-8/dirs.py': 550,
+            '/Users/federicomartinezescamilla/cursos/python/plural-python-core/chapter-8/exceptional.py': 781,
+            '/Users/federicomartinezescamilla/cursos/python/plural-python-core/chapter-8/roots.py': 859}
+
+2.  Para entender losProtocolos de Iteracion veamos a continuacion que son y comose diferencian un objeto
+    iterable de un objeto iterador:
+                     ITERABLE                                    ITERATOR
+            Puede ser pasado a la funcion               Puede ser pasado a la funcion
+            iter(iterable) para producir                next(iterator) para obtener el
+            un objeto iterator.                         siguiente valor en la secuencia
+                                                        subyacente.
+    Y para entender esto mejor, a continuacion mostramos un ejemplo de como se utiliza cada tipo de objeto:
+        >>> iterable = ['Spring','Summer','Autum','Winter',]
+        >>> iterator = iter(iterable)
+        >>> iterator
+        <list_iterator object at 0x1033c4d00>
+        >>> next(iterator)
+        'Spring'
+        >>> next(iterator)
+        'Summer'
+        >>> next(iterator)
+        'Autum'
+        >>> next(iterator)
+        'Winter'
+        >>> next(iterator)
+        Traceback (most recent call last):
+        File "<stdin>", line 1, in <module>
+        StopIteration
+        # Cuando ya no hay mas elementos en la secuencia se genera una excepcion
+    Para validar lo anterior se tiene que crear una funcion que reciba un objeto iterable 
+    para poder controlar la excepcion:
+        >>> def first(iterable):
+        ...     iterator = iter(iterable)
+        ...     try:
+        ...         return next(iterator)
+        ...     except StopIteration:
+        ...         raise ValueError("iterable is empty")
+        ... 
+        >>> first(['1st','2nd','erd',])
+        '1st'
+        >>> first({'1st','2nd','3rd',})
+        '2nd'       #Aqui me aparece este valor por que el contenido del set no tiene un orden 
+
