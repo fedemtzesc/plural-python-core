@@ -149,7 +149,7 @@
         File "<stdin>", line 6, in first
         ValueError: iterable is empty
 
-3.  Generator Functions. Son unas de las mas poderosas y elegantes caracteristicas 
+3.  Generator Functions (Funciones Generadoras de Iteradores). Son unas de las mas poderosas y elegantes caracteristicas 
     de python. Son una forma de describir series iterables por medio de funciones.
     
     Realizan lo que se llama "lazy evaluation" lo que significa que calculan el 
@@ -191,5 +191,7 @@
         1
         2
         3
-
         
+        TIP: ** Cada vez que se asigna una funcion generadora esta se inicializa en el primer elemento ***
+
+
