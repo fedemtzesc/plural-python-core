@@ -286,3 +286,44 @@
             (3, 4)
             (4, 5)
             (5, 6)
+
+        c)  La funcion count(stat=0, step=1) sirve como una funcion generadora de una secuencia infinita
+            del tipo lazy evaluation la cual genera y entrega un solo numero de la secuencia mientras se 
+            va solicitando.
+
+        d)  La funcion islice(iterable, start, stop[, step]) sirve para generar un objeto iterable de una 
+            tajada de otro objeto iterable. A menudo se acompaña de la funcion count(...) como en el ejemplo 
+            que viene a continuacion:
+                >>> diez = islice((x for x in count()), 10) # Aqui se genera un iterador del tipo islice que
+                >>> diez                                    # va a contener los primeros diez numeros que
+                <itertools.islice object at 0x10577b600>    # arroje la funcion infinita count() ya que no 
+                >>> for i in diez:                          # tiene fin si la usaramos con un for, pero como 
+                ...     print(i)                            # en este caso le solicitamos de uno por uno, no
+                ...                                         # se crea un ciclo infinitopor ser del tipo 
+                0                                           # lazy evaluation
+                1
+                2
+                3
+                4
+                5
+                6
+                7
+                8
+                9
+            Si quisiera que mi secuencia resultante empezara en 1 termine en 10 tendria que modificar los argumentos 
+            en el count de la primer línea de nuestro ejemplo como viene a continuacion:
+                >>> diez = islice((x for x in count(1,1)), 10)
+                >>> for i in diez:
+                ...     print(i)
+                ... 
+                1
+                2
+                3
+                4
+                5
+                6
+                7
+                8
+                9
+                10
+
