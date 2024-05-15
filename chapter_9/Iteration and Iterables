@@ -197,11 +197,15 @@
 
 4.  Generator Expressions (Expresiones generadoras de iteradores) 
         a)  Son un cruce entre Comprehensions y Generator Functions 
+        
         b)  Utilizan una sintaxis similar al de las Comprehensions
+        
         c)  Dan como resultado un objeto generador que produce una secuencia Lazy
+        
         d)  Su sintaxis es muy similar a las de las Comprehensions:
                 ( expr(item) for item in iterable )
             Solo que esta delimitada por parentesis en vez de brackets de listas
+        
         e)  Las expresiones no generan los valores en el momento, sino que
             reciben las manera de generarlos mediante la expresion generadora
             con la que se le hace la asignacion al objeto. Los valores como en 
@@ -213,6 +217,72 @@
                     <generator object <genexpr> at 0x104199e50>
                     >>> list(million_squares)[-10:] # Aqui se generaron los datos pero solo los que se solicitaron
                     [999982000081, 999984000064, 999986000049, 999988000036, 999990000025, 999992000016, 999994000009, 999996000004, 999998000001, 1000000000000]
+        
         f)  Son objetos generadores de un solo uso, esto es, con solo extraer un solo 
             elemento ya no se podra usar mas delante por que regresara una lista vacia.
+            Para poder volver a crear nuevamente el mismo objeto generador se tiene que
+            repetir el mismo procedimiento volviendo a usar la misma expresion generadora.
+            He aqui un ejemplo de esto:
+                >>> mil = (x for x in range(1,1001))
+                >>> list(mil)[0:10]
+                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                >>> list(mil)[0:10] # si lo queremos volver a utilizar ya no genera nada mas que una lista vacia
+                []
+            Y para poder volverlo a usar tenemos que recrear toda la expresion de nuevo como
+            se hizo inicialmente:
+                >>> list(mil)[100:120]
+                [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120]
+                >>> list(mil)[100:120]
+                []   # <=== Y regresamos a lo mismo nuevamente
+        
+        g)  La funcion integrada sum() hace la suma de cada uno de los numeros que contiene un objeto iterable
+            en este caso el que se genera pasandole como argumento actual utilizando una expresion generadora:
+                >>> sum(x for x in range(1, 101))
+                5050
 
+        h)  De la misma forma que las Comprehension tambien podemos aplicar filtros a las expresiones generadoras
+            como en este siguiente ejemplo:
+                >>> sum(x for x in range(1, 101) if x%2==0)
+                2550
+                ó
+                >>> sum(x for x in range(1, 11) if x%2==0)
+                30  # el iterable resultante seria: [2,4,6,8,10] => 2+4+6+8+10=30
+            *** NOTA: En este caso utilice una expresion booleana despues del if pero tambien podemos usar una 
+                      funcion que retorne valores booleanos.
+
+5.  Iteration Tools. Son herramientas que conforman el vocabulario Python para trabajar con iteradores.
+    Y se pueden combinar para generar poderosas declaraciones en un codigo muy conciso y legible.
+    
+    A continuacion se listan cada una de estas funciones de tratamiento de iterables:
+        a)  La funcion sum(), como su nombre lo dice, crea la sumatoria de los numeros contenidos en un iterable.
+            A continuación un ejemplo de uso de esta funcion:
+            >>> sum([1,2,3])
+            6
+            >>> sum(["Hola","Mundo"])   # Aqui podemos comprobar que la funcion sum() solo soporta iterables numericos
+            Traceback (most recent call last):
+            File "<stdin>", line 1, in <module>
+            TypeError: unsupported operand type(s) for +: 'int' and 'str'
+            >>> sum({1,2,3,4,5})
+            15
+            >>> sum({1:2,2:3,3:4,4:5})
+            10
+            >>> sum((1,2,3,4))
+            10
+            >>> sum(x for x in range(1,5))
+            10
+
+        b)  La funcion enumerate(iterable) genera un iterador que contiene una secuencia de tuplas con dos valores:
+            uno es el indice y el otro el valor original del iterable que se le paso como parametro actual, para 
+            entenderlo veamos el siguiente ejemplo:
+            >>> e = enumerate([1,2,3,4,5,6])
+            >>> e
+            <enumerate object at 0x105082de0>
+            >>> for x in e:
+            ...     print(x)
+            ... 
+            (0, 1)
+            (1, 2)
+            (2, 3)
+            (3, 4)
+            (4, 5)
+            (5, 6)
