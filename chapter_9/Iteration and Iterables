@@ -326,4 +326,239 @@
                 8
                 9
                 10
+            Tambien podemos aplicar filtros a nuestra expresion del argumento de la funcion islice() para poder elegir 
+            solo los elementos que necesitamos, por ejemplo, qsi queremos los primeros 100 numeros primos como en el 
+            siguiente ejemplo donde usamos nuestro modulo primos:
+                >>> cien_primos = islice( (x for x in count() if p.is_prime(x)),100 )
+                >>> cl = list(cien_primos)                #El if viene a aplicar nuestro filtro para tomar solo los
+                >>> len(cl)                               #numeros primos.
+                100
+                >>> cl
+                [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541]
+        
+        e)  La funcion itertools.any() determina si al menos uno de los elementos de una serie son True para poder evaluarse
+            como True en su salida, en resumen, funciona como un operador OR booleano:
+                >>> any([True, False, True])
+                True
+                >>> any([False, False, False])
+                False
+                >>> any(['', 1, False])
+                True
+                >>> any(['', None, 0])
+                False
+            Si le aplicamos la tabla binaria para el OR veremos que se comporta como se espera:
+                >>> any([0, 0, 0])
+                False
+                >>> any([0, 0, 1])
+                True
+                >>> any([0, 1, 0])
+                True
+                >>> any([0, 1, 1])
+                True
+                >>> any([1, 0, 0])
+                True
+                >>> any([1, 0, 1])
+                True
+                >>> any([1, 1, 0])
+                True
+                >>> any([1, 1, 1])
+                True
+            Y lo mas imortante es que con any() podemos preguntar por ejemplo si existen numeros primos entre un rango de numeros
+            combinandola con una expresion generadora:
+                >>> any(p.is_prime(x) for x in range(1328, 1361))
+                False
+                >>> any(p.is_prime(x) for x in range(20, 30))
+                True
+                >>> p.is_prime(23) #Y podemos comprobar la ultima expresion generadora encontrando que por lo menos 23 si es un 
+                True               #numero primo que esta dentro del rango de 20 y 29
+        
+        f)  La funcion itertools.all() arrojara True solamente si todos los elementos de una serie valen True en cualquiera de 
+            las distintas formas que python interpreta este valor:
+                >>> all([True, True, True])
+                True
+                >>> all([True, True, False])
+                False
+                >>> all([not None, 1, True])
+                True
+                >>> all(['', 1, True])
+                False
+                >>> all(['a', 1, True])
+                True
+                >>> all([not None, 0, True])
+                False
+            Si le aplicamos la correspondiente tabla del operador booleano AND veremos que se comporta como se espera:
+                >>> all([0,0,0])
+                False
+                >>> all([0,0,1])
+                False
+                >>> all([0,1,0])
+                False
+                >>> all([0,1,1])
+                False
+                >>> all([1,0,0])
+                False
+                >>> all([1,0,1])
+                False
+                >>> all([1,1,0])
+                False
+                >>> all([1,1,1])
+                True
+            Un ejemplo de su uso con empresiones generadoras seria el siguiente donde tengo que comprobar que cada nombre de 
+            la lista empieze con una letra mayuscula:
+                >>> all(name==name.title() for name in ['London','Paris','Topkyo','New York','Sydney','Kuala Lumpur'])
+                True             # title() hace que la primer letra de cada palabra se convierta en mayuscula
+                >>> all(name==name.title() for name in ['London','Paris','Topkyo','New York','Sydney','kuala Lumpur'])
+                False            # en este ultimo caso el ultimo elemento de la lista empieza con minuscula y ya no se cumple name==name.title()
+                                 # y como any valida que todos sean True, con el ultimo elemento que es False regresara False en consecuencia.
 
+        g)  La funcion itertools.zip iterara sobre dos o mas iterables y mostrara sus valores sincronizados en tuplas
+            hasta que a uno de los iterables que recibe de parametro llegue a su elemento final (con el parametro strict=False) 
+            o no tenga mas elementos en ese momento se detendra de generar mas tuplas.
+
+            Su sintaxis es la siguiente:
+                zip(*iterables, strict=True) --> Yield tuples until an input is exhausted.
+                donde:
+                    *iterables  pueden ser dos o mas secuencias iterables
+                    strict      permite generar tuplas hasta que alguno de los iterables se termine su valor por default es True
+                                Si lo pongo a False generara tuplas hasta que alguno de los iterables se termine
+                                Si lo pongo en True o no lo especifico, me generara tuplas unicamente con los iterables 
+                                que tengan misma cantidad de elementos 
+
+            Para entender mejor este concepto mostraremos varios ejemplos a continuacion:
+
+            i)  En este primer ejemplo, generareomos tuplas de tres valores que corresponden el primero a cada una de 
+                las letras de la primera secuencia que es un string, el segundo valor coontendra el valor correspondiente 
+                generado por el primer rango, y el tercer valor sera el correspondiente valor del segundo rango:
+                    >>> list(zip('abcdefg', range(7), range(7)))
+                    [('a', 0, 0), ('b', 1, 1), ('c', 2, 2), ('d', 3, 3), ('e', 4, 4), ('f', 5, 5), ('g', 6, 6)]
+            ii) En este ejemplo generamos tuplas con 3 valores: (Dia de la semana, su valor ordinal, numero de dia)
+                    >>> my_zip = zip(dias_sem, ordinales, [1,2,3,4,5,6,7], strict=True)
+                    >>> pp(list(my_zip))
+                    [('Lunes', '1ro', 1),
+                    ('Martes', '2do', 2),           # Como se puee ver en las tuplas resultantes, la salida 
+                    ('Miercoles', '3ro', 3),        # es una lista de tuplas con los valores de cada iterable
+                    ('Jueves', '4to', 4),           # de manera ordenada y sincronizada. Y como se usa el 
+                    ('Viernes', '5to', 5),          # Parametro strict=True, se valida que todos los iterables
+                    ('Sabado', '6to', 6),           # contengan la misma cantidad de elemento, que de no ser
+                    ('Domingo', '7mo', 7)]          # asi, se generara una excepcion como en el ejemplo a continuacion...
+             
+                    Si especificamos el parametro strict=True pero una de las tuplas tiene mas o menos elementos
+                    que las otras que llegan como input tambien, se nos levantara la siguiente excepcion:
+                        >>> my_zip = zip(dias_sem, ordinales, [1,2,3,4,5,6], strict=True)
+                        >>> pp(list(my_zip))                # En este caso la lista (arg(3)) solo tiene 6 dias no 7
+                        Traceback (most recent call last):
+                        File "<stdin>", line 1, in <module>
+                        ValueError: zip() argument 3 is shorter than arguments 1-2    
+            
+                    Si le quitamos el argumento strict o le ponemos su valor por defecto nos generara las tuplas
+                    hasta que el iterador del argumento 3 que es el mas corto se agote, dejando la lista solo hasta 
+                    el dia 6:
+                        >>> my_zip = zip(dias_sem, ordinales, [1,2,3,4,5,6])
+                        >>> pp(list(my_zip))
+                        [('Lunes', '1ro', 1),
+                        ('Martes', '2do', 2),
+                        ('Miercoles', '3ro', 3),
+                        ('Jueves', '4to', 4),
+                        ('Viernes', '5to', 5),
+                        ('Sabado', '6to', 6)]
+                        >>> my_zip = zip(dias_sem, ordinales, [1,2,3,4,5,6], strict=False)
+                        >>> pp(list(my_zip))
+                        [('Lunes', '1ro', 1),
+                        ('Martes', '2do', 2),
+                        ('Miercoles', '3ro', 3),
+                        ('Jueves', '4to', 4),
+                        ('Viernes', '5to', 5),
+                        ('Sabado', '6to', 6)]
+
+                iii)Supongamos que necesitamos ver las temperaturas de dos dias cada hora... Y luego necesito saber
+                    el promedio de temperaturas entre esos dias:
+                        >>> lunes; martes
+                        [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 32]
+                        [15, 16, 17, 18, 18, 19, 20, 21, 22, 23, 24, 25]
+                        >>> for lunes, martes in zip(lunes, martes):
+                        ...     print(f"promedio temp. = {(lunes+martes)/2}")
+                        ... 
+                        promedio temp. = 17.5
+                        promedio temp. = 18.5
+                        promedio temp. = 19.5
+                        promedio temp. = 20.5
+                        promedio temp. = 21.0
+                        promedio temp. = 22.0
+                        promedio temp. = 23.0
+                        promedio temp. = 24.0
+                        promedio temp. = 25.0
+                        promedio temp. = 26.0
+                        promedio temp. = 27.0
+                        promedio temp. = 28.5
+                iv) De hecho, zip() puede soportar mas de 2 iterables, la cantidad que sea, como en la continuacion del 
+                    ejemplo anterior dodne ahora calculamos el promedio de temperatura de 3 dias y la minima y maxima:
+                        >>> lunes; martes;miercoles
+                        [15, 16, 17, 18, 18, 19, 20, 21, 22, 23, 24, 25]
+                        [15, 16, 17, 18, 18, 19, 20, 21, 22, 23, 24, 25]
+                        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+                        >>> for temps in zip(lunes, martes, miercoles):
+                        ...     print(f"min={min(temps):4.1f}, max={max(temps):4.1f}, average={(sum(temps)/len(temps)):4.1f}")
+                        ... 
+                        min= 0.0, max=15.0, average=10.0
+                        min= 1.0, max=16.0, average=11.0
+                        min= 2.0, max=17.0, average=12.0
+                        min= 3.0, max=18.0, average=13.0
+                        min= 4.0, max=18.0, average=13.3
+                        min= 5.0, max=19.0, average=14.3
+                        min= 6.0, max=20.0, average=15.3
+                        min= 7.0, max=21.0, average=16.3
+                        min= 8.0, max=22.0, average=17.3
+                        min= 9.0, max=23.0, average=18.3
+                        min=10.0, max=24.0, average=19.3
+                        min=11.0, max=25.0, average=20.3
+                    
+                    Tambien podemos con any revisar si entre los tres dias todas las temperaturas fueron mayores a 0 grados
+                    >>> temperaturas = chain(lunes,martes, miercoles) # Hacemos una secuencia de cadena de los valores de los
+                    >>> all(t>0 for t in temperaturas)                # 3 dias y despues con all validamos que todos sean >0
+                    False                                             # pero como el miercoles trae 0° no se cumple y es False
+
+        h)  Finalmente tenemos a la funcion chain(*iterables) la cual recibe como parametros cualquier cantidad de iterables
+            y los encadena de manera lineal creando unobjeto "chain object" el cual retorna uno por uno mediante el metodo next. 
+            Para entender mejor el concemoto veamos el siguiente ejemplo:
+                >>> tres_planetas = ['Mercurio','Venus','Tierra']
+                >>> tres_juguetes = ['Trompo','Valero','Canicas']
+                >>> tres_numeros  = [1,2,3]
+                >>> obj_chain = chain(tres_planetas, tres_juguetes, tres_numeros)
+                >>> obj_chain
+                <itertools.chain object at 0x102873a00>
+                >>> next(obj_chain)
+                'Mercurio'
+                >>> next(obj_chain)
+                'Venus'
+                >>> next(obj_chain)
+                'Tierra'
+                >>> next(obj_chain)
+                'Trompo'
+                >>> next(obj_chain)
+                'Valero'
+                >>> next(obj_chain)
+                'Canicas'
+                >>> next(obj_chain)
+                1
+                >>> next(obj_chain)
+                2
+                >>> next(obj_chain)
+                3
+                >>> next(obj_chain)
+                Traceback (most recent call last):
+                File "<stdin>", line 1, in <module>
+                StopIteration
+            El orden de los elementos depende del orden de los argumentos que le pasemos a chain()...:
+                >>> obj_chain = chain(tres_juguetes, tres_numeros, tres_planetas)
+                >>> for c in obj_chain:     #el objeto chain tambien es un iterable y por tanto compatible con for
+                ...     print(c)
+                ... 
+                Trompo
+                Valero
+                Canicas
+                1
+                2
+                3
+                Mercurio
+                Venus
+                Tierra
