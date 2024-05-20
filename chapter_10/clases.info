@@ -1,0 +1,22 @@
+1.  Classes. Las Clases son un medio para definir la estructura y comportamiento de los objetos
+    al momento de crearlos.
+
+    En terminos generales, el tipo de un objeto se fija a lo largo de su vida.
+
+    Las clases son las plantillas a partir de las cuales se construten nuevos objetos.
+
+    Un Objeto es una Instancia de una Clase
+
+    Las Clases son la pieza principal de la Programacion Orientada a Objetos (POO)
+
+    Las Clases se crean abstrayendo solo las caracteristicas y funcionalidades minimas necesarias que
+    se requieren para simularlas y usarlas dentro de un sistema dado.
+
+    Definicion de una clase en Python:
+
+            class MyClassNameCamelCase:
+                pass
+            # Por convencion los 
+            # nombres de clases usaran 
+            # la convencion camel case 
+    
