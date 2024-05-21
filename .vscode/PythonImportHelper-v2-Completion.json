@@ -1,0 +1,312 @@
+[
+    {
+        "label": "pp",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
+        "documentation": {}
+    },
+    {
+        "label": "pp",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "system",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "system",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "system",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "urlopen",
+        "importPath": "urllib.request",
+        "description": "urllib.request",
+        "isExtraImport": true,
+        "detail": "urllib.request",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "log",
+        "importPath": "math",
+        "description": "math",
+        "isExtraImport": true,
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "sqrt",
+        "importPath": "math",
+        "description": "math",
+        "isExtraImport": true,
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": {
+            "name": "",
+            "kind": 6,
+            "peekOfCode": "class   Flight:\n    \"\"\"Allocate a seat to a passenger.\"\"\"\n    def __init__(self, number, aircraft) -> None:\n        if not number[:2].isalpha():\n            raise ValueError(f\"El codigo debe empezar con dos letras en '{number}'\")\n        if not number[:2].isupper():\n            raise ValueError(f\"Las primeras dos letras deben ser mayusculas en '{number}'\")\n        if not (number[2:].isdigit() and int(number[2:])<=9999):\n            raise ValueError(f\"El numero de ruta debe de ser un numero entre 0001 y 9999 en '{number}'\")\n        self._number = number"
+        },
+        "kind": 6,
+        "importPath": "chapter_10.airtravel",
+        "description": "chapter_10.airtravel",
+        "peekOfCode": "class   Flight:\n    \"\"\"Allocate a seat to a passenger.\"\"\"\n    def __init__(self, number, aircraft) -> None:\n        if not number[:2].isalpha():\n            raise ValueError(f\"El codigo debe empezar con dos letras en '{number}'\")\n        if not number[:2].isupper():\n            raise ValueError(f\"Las primeras dos letras deben ser mayusculas en '{number}'\")\n        if not (number[2:].isdigit() and int(number[2:])<=9999):\n            raise ValueError(f\"El numero de ruta debe de ser un numero entre 0001 y 9999 en '{number}'\")\n        self._number = number",
+        "detail": "chapter_10.airtravel",
+        "documentation": {}
+    },
+    {
+        "label": "Aircraft",
+        "kind": 6,
+        "importPath": "chapter_10.airtravel",
+        "description": "chapter_10.airtravel",
+        "peekOfCode": "class Aircraft:\n    def __init__(self, registration, model, num_rows, num_seats_per_row) -> None:\n        self._registration = registration\n        self._model = model\n        self._num_rows = num_rows\n        self._num_seats_per_row = num_seats_per_row\n    def registration(self):\n       return self._registration\n    def model(self):\n        return self._model",
+        "detail": "chapter_10.airtravel",
+        "documentation": {}
+    },
+    {
+        "label": "make_flight",
+        "kind": 2,
+        "importPath": "chapter_10.airtravel",
+        "description": "chapter_10.airtravel",
+        "peekOfCode": "def make_flight():\n    f = Flight(\"BA758\", Aircraft(\"G-EUPT\",\"Airbus A-319\", num_rows=22, num_seats_per_row=6))\n    f.allocate_seat(\"12A\", \"Federico\")\n    f.allocate_seat(\"15F\", \"Yolanda\")\n    f.allocate_seat(\"15E\", \"Valeria\")\n    f.allocate_seat(\"1C\", \"Sebastian\")\n    f.allocate_seat(\"1D\", \"Ximena\")\n    f.show_seats()\n    f._relocate_passenger('12A', '22A')\n    return f",
+        "detail": "chapter_10.airtravel",
+        "documentation": {}
+    },
+    {
+        "label": "saluda",
+        "kind": 2,
+        "importPath": "chapter_5.modulos.modulo_importar",
+        "description": "chapter_5.modulos.modulo_importar",
+        "peekOfCode": "def saluda():\n    print('Hola Mundo!')\nif __name__ != '__main__':\n    print(__name__,'cargado!')",
+        "detail": "chapter_5.modulos.modulo_importar",
+        "documentation": {}
+    },
+    {
+        "label": "nth_root",
+        "kind": 2,
+        "importPath": "chapter_5.modulos.potencias_y_ordinales",
+        "description": "chapter_5.modulos.potencias_y_ordinales",
+        "peekOfCode": "def nth_root(radicand, n):\n    return radicand ** (1/n)\ndef ordinal_suffix(value):\n    s = str(value)\n    if s.endswith('11'):\n        return 'th'\n    elif s.endswith('12'):\n        return 'th'\n    elif s.endswith('13'):\n        return 'th'",
+        "detail": "chapter_5.modulos.potencias_y_ordinales",
+        "documentation": {}
+    },
+    {
+        "label": "ordinal_suffix",
+        "kind": 2,
+        "importPath": "chapter_5.modulos.potencias_y_ordinales",
+        "description": "chapter_5.modulos.potencias_y_ordinales",
+        "peekOfCode": "def ordinal_suffix(value):\n    s = str(value)\n    if s.endswith('11'):\n        return 'th'\n    elif s.endswith('12'):\n        return 'th'\n    elif s.endswith('13'):\n        return 'th'\n    elif s.endswith('1'):\n        return 'st'",
+        "detail": "chapter_5.modulos.potencias_y_ordinales",
+        "documentation": {}
+    },
+    {
+        "label": "ordinal",
+        "kind": 2,
+        "importPath": "chapter_5.modulos.potencias_y_ordinales",
+        "description": "chapter_5.modulos.potencias_y_ordinales",
+        "peekOfCode": "def ordinal(value):\n    return str(value) + ordinal_suffix(value)\ndef display_nht_root(radicand, n):\n    root = nth_root(radicand, n)\n    message = \"The \" + ordinal(n) + \" root of \" \\\n              + str(radicand) + \" is \" + str(root)\n    print(message)\n    print('__name__ = ', __name__)\n# Si quiero probar mi archivo pero que no se ejecute lo que esta despues del if\n# cuando importamos este archivo como modulo en otro archivo se hace lo siguiente:",
+        "detail": "chapter_5.modulos.potencias_y_ordinales",
+        "documentation": {}
+    },
+    {
+        "label": "display_nht_root",
+        "kind": 2,
+        "importPath": "chapter_5.modulos.potencias_y_ordinales",
+        "description": "chapter_5.modulos.potencias_y_ordinales",
+        "peekOfCode": "def display_nht_root(radicand, n):\n    root = nth_root(radicand, n)\n    message = \"The \" + ordinal(n) + \" root of \" \\\n              + str(radicand) + \" is \" + str(root)\n    print(message)\n    print('__name__ = ', __name__)\n# Si quiero probar mi archivo pero que no se ejecute lo que esta despues del if\n# cuando importamos este archivo como modulo en otro archivo se hace lo siguiente:\nif __name__ == \"__main__\":      # __name__ conteendra el nombre que se le asigna al modulo al momento de ejecutarse.\n    os.system('clear')          # Si recibe main, es que se se esta ejecutando de forma directa, y si recibe su propio",
+        "detail": "chapter_5.modulos.potencias_y_ordinales",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_words",
+        "kind": 2,
+        "importPath": "chapter_5.words",
+        "description": "chapter_5.words",
+        "peekOfCode": "def fetch_words(url):  \n    '''Fetch a list of words from a URL \n        Args:\n            url: The URL of a UTF-8 text document\n        Returns:\n            A list of strings containing the words from\n            the document    \n    '''      \n    story = urlopen(url)\n    story_words = []",
+        "detail": "chapter_5.words",
+        "documentation": {}
+    },
+    {
+        "label": "print_items",
+        "kind": 2,
+        "importPath": "chapter_5.words",
+        "description": "chapter_5.words",
+        "peekOfCode": "def print_items(items):\n    '''Print items one per line.\n        Args:\n            An iterable series of printable items\n    '''\n    for item in items:\n        print(item)  \ndef main(url):\n    '''Print each word from a text documen from at URL\n        Args:",
+        "detail": "chapter_5.words",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "chapter_5.words",
+        "description": "chapter_5.words",
+        "peekOfCode": "def main(url):\n    '''Print each word from a text documen from at URL\n        Args:\n            url: The URL of a UTF-8 text document\n       '''\n    # try:\n    #     if len(sys.argv) <= 1:\n    #         #print(sys.argv[0])  # El primer elemento de argv contiene el nombre del archivo\n    #         print('ARGUMENTOS INVALIDOS')\n    #         system('sleep 5')",
+        "detail": "chapter_5.words",
+        "documentation": {}
+    },
+    {
+        "label": "banner",
+        "kind": 2,
+        "importPath": "chapter_6.banner",
+        "description": "chapter_6.banner",
+        "peekOfCode": "def banner(message, border='-'):\n    line = border * len(message)\n    print(\"\\t\", line)\n    print(\"\\t\", message)\n    print(\"\\t\", line)\nif __name__ == '__main__':\n    if len(sys.argv)==3:\n        msg = sys.argv[1]\n        brd = sys.argv[2]\n    elif len(sys.argv)==2:",
+        "detail": "chapter_6.banner",
+        "documentation": {}
+    },
+    {
+        "label": "make_at",
+        "kind": 2,
+        "importPath": "chapter_8.dirs",
+        "description": "chapter_8.dirs",
+        "peekOfCode": "def make_at(path, dir_name):\n    actual_path = os.getcwd()\n    try:\n        os.chdir(path)\n        if not os.path.exists(dir_name):\n            os.mkdir(dir_name)\n        #Borramos el directorio que es solo de prueba\n        os.rmdir(dir_name)\n    except Exception as e:\n        print(e, file=sys.stderr)",
+        "detail": "chapter_8.dirs",
+        "documentation": {}
+    },
+    {
+        "label": "convert",
+        "kind": 2,
+        "importPath": "chapter_8.exceptional",
+        "description": "chapter_8.exceptional",
+        "peekOfCode": "def convert(s):\n    \"\"\" Convert a string to an integer\"\"\"\n    try:\n        number = ''\n        for token in s:\n            number += DIGIT_MAP[token]\n        return int(number)\n    except (KeyError, TypeError) as e:\n        print(f\"Conversion error: {e!r}\",file=sys.stderr)\n        raise",
+        "detail": "chapter_8.exceptional",
+        "documentation": {}
+    },
+    {
+        "label": "string_log",
+        "kind": 2,
+        "importPath": "chapter_8.exceptional",
+        "description": "chapter_8.exceptional",
+        "peekOfCode": "def string_log(s):\n    v = convert(s)\n    return log(v)\nif __name__ == '__main__':\n    system(\"clear\")\n    #print(convert(\"one two three\".split()))\n    #print(string_log(\"one two three\".split()))\n    print(string_log(\"ouch!\".split()))",
+        "detail": "chapter_8.exceptional",
+        "documentation": {}
+    },
+    {
+        "label": "DIGIT_MAP",
+        "kind": 5,
+        "importPath": "chapter_8.exceptional",
+        "description": "chapter_8.exceptional",
+        "peekOfCode": "DIGIT_MAP = {\n    'zero' : '0',\n    'one' : '1',\n    'two' : '2',\n    'three' : '3',\n    'four' : '4',\n    'five' : '5',\n    'six' : '6',\n    'seven' : '7',\n    'eight' : '8',",
+        "detail": "chapter_8.exceptional",
+        "documentation": {}
+    },
+    {
+        "label": "sqrt",
+        "kind": 2,
+        "importPath": "chapter_8.roots",
+        "description": "chapter_8.roots",
+        "peekOfCode": "def sqrt(x):\n    '''\n        Compute sqare roots using the method\n        of Heron of Alexandria.\n        Args:\n            x:  The number for wich the sqare root\n                is to be computed.\n        Returns: \n            The sqare root of x\n        Raises:",
+        "detail": "chapter_8.roots",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "chapter_8.roots",
+        "description": "chapter_8.roots",
+        "peekOfCode": "def main():\n    print(sqrt(4))\n    try:\n        print(sqrt(-1))\n    except ValueError as e:\n        print(f\"{e!r}\", file=sys.stderr)\n    print(\"\\n*** Programm execution continues \" \n          \"normally here ***\")\nif __name__ == '__main__':\n    main()",
+        "detail": "chapter_8.roots",
+        "documentation": {}
+    },
+    {
+        "label": "is_prime",
+        "kind": 2,
+        "importPath": "chapter_9.primos",
+        "description": "chapter_9.primos",
+        "peekOfCode": "def is_prime(x):\n    if x < 2:\n        return False\n    for i in range(2, int(sqrt(x))+ 1):\n        #print(i)\n        if x % i == 0:\n            return False\n    return True\ndef get_primes(limit):\n    lst_primes = []",
+        "detail": "chapter_9.primos",
+        "documentation": {}
+    },
+    {
+        "label": "get_primes",
+        "kind": 2,
+        "importPath": "chapter_9.primos",
+        "description": "chapter_9.primos",
+        "peekOfCode": "def get_primes(limit):\n    lst_primes = []\n    for i in range(limit):\n        if is_prime(i):\n            lst_primes.append(i)\n    return lst_primes\nif __name__ == '__main__':\n    print(\"primos: \",get_primes(101))\n    # Aqui generamos la misma lista usando una List Comprehension\n    # y como filtro la funcion is_prime(x) para condicionar cuales",
+        "detail": "chapter_9.primos",
+        "documentation": {}
+    },
+    {
+        "label": "take",
+        "kind": 2,
+        "importPath": "generators",
+        "description": "generators",
+        "peekOfCode": "def take(n, iterator):\n    counter = 0\n    #print(\"Funcion Generadora: Iterador: \", next(iterator))\n    for item in iterator:\n        if counter == n:\n            return\n        counter += 1\n        yield item\ndef distinct(iterable):\n    seen = set()",
+        "detail": "generators",
+        "documentation": {}
+    },
+    {
+        "label": "distinct",
+        "kind": 2,
+        "importPath": "generators",
+        "description": "generators",
+        "peekOfCode": "def distinct(iterable):\n    seen = set()\n    for item in iterable:\n        if item in seen:\n            continue\n        yield item\n        seen.add(item)\ndef run_pipeline():\n    items = [3,6,6,2,1,1,]\n    for item in take(3, list(distinct(items))): # List provoca que primero se genere la lista completa del iterador",
+        "detail": "generators",
+        "documentation": {}
+    },
+    {
+        "label": "run_pipeline",
+        "kind": 2,
+        "importPath": "generators",
+        "description": "generators",
+        "peekOfCode": "def run_pipeline():\n    items = [3,6,6,2,1,1,]\n    for item in take(3, list(distinct(items))): # List provoca que primero se genere la lista completa del iterador\n        print(item)                             # dentro de distinc en vez de usar el valor yield inmediatamente \n                                                # generado como se hace en take\nif __name__ == '__main__':\n    system('clear')\n    run_pipeline()\n    print(\"\")",
+        "detail": "generators",
+        "documentation": {}
+    }
+]
