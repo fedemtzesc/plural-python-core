@@ -40,7 +40,7 @@
         Despues usando una sintaxis mas programatica:
         [ expr(item) for item in items ]
         NOTA: La expr que produce los nuevos elementos de la lista puede ser cualquier
-        expresion de python
+        expresion de python 
 
     e)  La sintaxis de una conmprehension de set es la siguiente:
         Primeramente se podria decir que se divide en dos partes encerradas 
@@ -98,8 +98,10 @@
             {'/Users/federicomartinezescamilla/cursos/python/plural-python-core/chapter-8/dirs.py': 550,
             '/Users/federicomartinezescamilla/cursos/python/plural-python-core/chapter-8/exceptional.py': 781,
             '/Users/federicomartinezescamilla/cursos/python/plural-python-core/chapter-8/roots.py': 859}
+    
+    h)  En resumen, las comprehensions solo funcionan para listas, sets y diccionarios.
 
-2.  Para entender losProtocolos de Iteracion veamos a continuacion que son y comose diferencian un objeto
+2.  Para entender los Protocolos de Iteracion veamos a continuacion que son y como se diferencian un objeto
     iterable de un objeto iterador:
                      ITERABLE                                    ITERATOR
             Puede ser pasado a la funcion               Puede ser pasado a la funcion

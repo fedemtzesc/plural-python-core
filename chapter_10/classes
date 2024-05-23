@@ -1,5 +1,75 @@
-1.  La Ley de Demetrio es un principio del diseño orientado a objetos que dice:
-    NUNCA DEBE LLAMAR A METODOS SOBRE OBJETOS QUE RECIBISTE DE OTRAS LLAMADAS...
-    Esto es, o dicho de otra manera:
-    SOLO HABLE CON TUS AMIGOS...
+1.  Las clases son para definir la estructura y el comportamiento de los objetos 
+    en el momento de que creamos dichos objetos que vienen a ser instancias de
+    dicha clase.
+
+    En Python todos los elementos son objetos... Todo es un objeto en python, y las
+    clases, no son la excepcion
+
+    El tipo del objeto se fija a lo largo de su vida.
+
+    Haciendo una analogia, las clases son como plantillas o patrones de los cuales
+    se pueden generar nuevos objetos.
+
+    A continuacion la sintaxis mas simple para la creaciojn de una clase:
+        class MyClassName:
+            pass
+        # Por convencion, los nombres de clase se crean usando PascalCase
+        # que no es lo mismo que camelCase
+
+    Las clases por si solas no funcionan, por lo tnato, deben de contener lo que 
+    se llama "Matodos de Instancia" que son funciones que se definen dentro de la
+    clase. Y que se pueden llamar desde nuestras clases u objetos o instancias de
+    nuestras clases.
+
+    Los Metodos de Instancia, AL SER DEFINIDOS deben aceptar una referencia a la
+    instancia real en la que se llamo el metodo, y debe ir como primer argumento.
+    Y por convencion, este primer argumento se llama "self". A continuacion se 
+    muestra un ejemplo de sintaxis simple de un metodo de instnacia:
+        class MyClassName:
+            def InstanceMethod(self, [arg1, arg2, . . . , arg3])
+                return [output_object]
+    
+    NOTA: Cuando se llama el Metodo de Instancia no es necesario mandar el primer
+          argment "self" ya que por convencion no es necesario.
+
+    Existe un tipo de Metodo de Instancia especial que sirve para inicializar la
+    Instancia al crear un objeto nuevo, este tipo de metodo se llama "Inicializador
+    de Instancia" o lo que comunmente conocemos los programadores de otros lenguajes
+    como "Constructores".
+
+    Para esto, Python tiene definido un nombre de metodo llamado:
+        __init__(self, [arg1, arg2, . . . , arg3])
+    que sirve para generar un constructor de la clase que estamos creando. Se manda
+    llamar como parte de la creacion de un nuevo objeto  cuando llamamos al 
+    Constructor.
+
+    En python no es posible tener multiples constructores y en general metodos, esto
+    si puede hacerse en otros lenguajes de programación pero python es una excepción
+
+    La forma de “simular” tener muchos constructores es con parametros opcionales y 
+    asi es como python funciona.
+
+2.  El Principio de Demetrio.- El principio del mínimo conocimiento. Este es un 
+    principio de diseño orientado a la POO que dice:
+        Que nunca debes llamar a metodos sobre el objeto que recibiste en otras
+        llamadas... O dicho de otra manera: SOLO HABLA CON TUS AMIGOS.
+    
+    Para entender mejor este principio supongamos que tenemos la siguiente clase
+    class Flight:
+        _number = ''
+        _aircraft = None    # Aqui la clase Flight contiene un atrbuto que es un 
+                              tipo de cierto objeto, en este caso, Aircraft
+    Y ahora supongamos que deseamos acceder al metodo model() del objeto Aircreaft.
+    Si lo hicieramos de esta manera:
+        print(_aircraft.model())
+    estariamos violando el Principio de Demetrio por que estariamos llamando al metodo
+    sobre el objeto que recibimos. Entonces, para seguir el principio y hacero de
+    manera correcta lo que tenemos que hacer es un nuevo metodo que le delegue dicha
+    responsabilidad al objeto recibido, como se muestra a continuacion:
+        def aircraft_model(self):
+            return self._aircraft.model()
+
+    
+
+
     

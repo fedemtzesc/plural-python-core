@@ -95,6 +95,24 @@ class   Flight:
         
     def show_seats(self):
         pp(self._seating)    
+        
+    def num_available_seats(self):
+        return sum(sum(1 for s in row.values() if s is None)
+                    for row in self._seating if row is not None)
+        
+    def make_boarding_cards(self, card_printer):
+        for passenger, seat in sorted(self._passenger_seats()):
+            card_printer(passenger, seat, self.number(), self.aircraft_model())
+            
+    def _passenger_seats(self):
+        """An iterable series of passenger seating locations"""
+        row_numbers, seat_letters = self._aircraft.seating_plan()
+        for row in row_numbers:
+            for letter in seat_letters:
+                passenger = self._seating[row][letter]
+                if passenger is not None:
+                    yield (passenger, f"{row}{letter}")
+                    
     
         
 class Aircraft:
@@ -114,7 +132,22 @@ class Aircraft:
         return (range(1, self._num_rows + 1), 
                 "ABCDEFGHJK"[:self._num_seats_per_row])
         
-        
+
+def console_card_printer(passenger, seat, flight_number, aircraft):
+    output = f"| Name {passenger}"          \
+             f"  Flight {flight_number}"    \
+             f"  Seat {seat}"               \
+             f"  Aircraft {aircraft}"       \
+             " |"
+    banner = "+" + "-" * (len(output) -2) + "+"
+    border = "|" + "-" * (len(output) -2) + "|"
+    lines = [banner, border, output, border, banner]
+    card = "\n".join(lines)
+    print(card)
+    print() 
+    
+    
+     
         
 def make_flight():
     f = Flight("BA758", Aircraft("G-EUPT","Airbus A-319", num_rows=22, num_seats_per_row=6))
@@ -123,14 +156,14 @@ def make_flight():
     f.allocate_seat("15E", "Valeria")
     f.allocate_seat("1C", "Sebastian")
     f.allocate_seat("1D", "Ximena")
+    print("*** Vuelo creado con sus asientos asignados: ")
     f.show_seats()
-    f._relocate_passenger('12A', '22A')
+    #f._relocate_passenger('12A', '22A')
     return f
-
-
 
     
 if __name__ == '__main__':
     f = make_flight()
+    f.make_boarding_cards(console_card_printer)
     f.show_seats()
         
