@@ -134,7 +134,7 @@
         "kind": 2,
         "importPath": "chapter_10.airtravel",
         "description": "chapter_10.airtravel",
-        "peekOfCode": "def make_flight():\n    f = Flight(\"BA758\", Aircraft(\"G-EUPT\",\"Airbus A-319\", num_rows=22, num_seats_per_row=6))\n    f.allocate_seat(\"12A\", \"Federico\")\n    f.allocate_seat(\"15F\", \"Yolanda\")\n    f.allocate_seat(\"15E\", \"Valeria\")\n    f.allocate_seat(\"1C\", \"Sebastian\")\n    f.allocate_seat(\"1D\", \"Ximena\")\n    print(\"*** Vuelo creado con sus asientos asignados: \")\n    f.show_seats()\n    #f._relocate_passenger('12A', '22A')",
+        "peekOfCode": "def make_flight():\n    f = Flight(\"BA758\", Aircraft(\"G-EUPT\",\"Airbus A-319\", num_rows=22, num_seats_per_row=6))\n    f.allocate_seat(\"1A\", \"Alicia\")\n    f.allocate_seat(\"2A\", \"Elizabeth\")\n    f.allocate_seat(\"12A\", \"Federico\")\n    f.allocate_seat(\"15F\", \"Yolanda\")\n    f.allocate_seat(\"15E\", \"Valeria\")\n    f.allocate_seat(\"1C\", \"Sebastian\")\n    f.allocate_seat(\"1D\", \"Ximena\")\n    print(\"*** Vuelo creado con sus asientos asignados: \")",
         "detail": "chapter_10.airtravel",
         "documentation": {}
     },
@@ -145,6 +145,60 @@
         "description": "chapter_10.ops_aritm",
         "peekOfCode": "class Operaciones:\n    def __init__(self):\n        self._op1 = 0\n        self._op2 = 0 \n        self._op3 = 0 \n    def __init__(self, op1, op2):\n        self._op1 = op1\n        self._op2 = op2 \n        self._op3 = 0 \n    def init_instance(self, op1, op2, op3):",
         "detail": "chapter_10.ops_aritm",
+        "documentation": {}
+    },
+    {
+        "label": "Animal",
+        "kind": 6,
+        "importPath": "chapter_10.polimorfismo",
+        "description": "chapter_10.polimorfismo",
+        "peekOfCode": "class Animal:\n    _nombre=''\n    def __init__(self, nombre):\n        self._nombre = nombre\n    def __repr__(self):\n        return f\"El nombre del animal es {self._nombre}\"\n    def moverse(self):\n        print(\"El animal generico se mueve...\")\nclass Perro(Animal):\n    def moverse(self):",
+        "detail": "chapter_10.polimorfismo",
+        "documentation": {}
+    },
+    {
+        "label": "Perro",
+        "kind": 6,
+        "importPath": "chapter_10.polimorfismo",
+        "description": "chapter_10.polimorfismo",
+        "peekOfCode": "class Perro(Animal):\n    def moverse(self):\n        print(f\"Hola! soy un perro {self._nombre}, y estoy caminando!\")\nclass Pez(Animal):\n    def moverse(self):\n        print(f\"Hola! soy un pez {self._nombre}, y estoy nadando!\")\nclass Ave(Animal):\n    def moverse(self):\n        print(f\"Hola! soy un ave {self._nombre}, y estoy volando!\")\nclass Reptil(Animal):",
+        "detail": "chapter_10.polimorfismo",
+        "documentation": {}
+    },
+    {
+        "label": "Pez",
+        "kind": 6,
+        "importPath": "chapter_10.polimorfismo",
+        "description": "chapter_10.polimorfismo",
+        "peekOfCode": "class Pez(Animal):\n    def moverse(self):\n        print(f\"Hola! soy un pez {self._nombre}, y estoy nadando!\")\nclass Ave(Animal):\n    def moverse(self):\n        print(f\"Hola! soy un ave {self._nombre}, y estoy volando!\")\nclass Reptil(Animal):\n    def moverse(self):\n        print(f\"Hola! soy un reptil {self._nombre}, y me estoy arrastrando!\")\ndef mover_animal(animal):",
+        "detail": "chapter_10.polimorfismo",
+        "documentation": {}
+    },
+    {
+        "label": "Ave",
+        "kind": 6,
+        "importPath": "chapter_10.polimorfismo",
+        "description": "chapter_10.polimorfismo",
+        "peekOfCode": "class Ave(Animal):\n    def moverse(self):\n        print(f\"Hola! soy un ave {self._nombre}, y estoy volando!\")\nclass Reptil(Animal):\n    def moverse(self):\n        print(f\"Hola! soy un reptil {self._nombre}, y me estoy arrastrando!\")\ndef mover_animal(animal):\n    print(animal)\n    animal.moverse()\nif __name__== \"__main__\":",
+        "detail": "chapter_10.polimorfismo",
+        "documentation": {}
+    },
+    {
+        "label": "Reptil",
+        "kind": 6,
+        "importPath": "chapter_10.polimorfismo",
+        "description": "chapter_10.polimorfismo",
+        "peekOfCode": "class Reptil(Animal):\n    def moverse(self):\n        print(f\"Hola! soy un reptil {self._nombre}, y me estoy arrastrando!\")\ndef mover_animal(animal):\n    print(animal)\n    animal.moverse()\nif __name__== \"__main__\":\n    opcion = -1 \n    while opcion!=0:\n        os.system(\"clear\")",
+        "detail": "chapter_10.polimorfismo",
+        "documentation": {}
+    },
+    {
+        "label": "mover_animal",
+        "kind": 2,
+        "importPath": "chapter_10.polimorfismo",
+        "description": "chapter_10.polimorfismo",
+        "peekOfCode": "def mover_animal(animal):\n    print(animal)\n    animal.moverse()\nif __name__== \"__main__\":\n    opcion = -1 \n    while opcion!=0:\n        os.system(\"clear\")\n        print(\"Que mascota quieres?\")\n        lst = ['1.Perro','2.Pez','3.Ave','4.Reptil', '0.Salir']\n        print('\\n', '\\n'.join(lst), sep='')",
+        "detail": "chapter_10.polimorfismo",
         "documentation": {}
     },
     {

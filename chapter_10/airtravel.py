@@ -151,13 +151,15 @@ def console_card_printer(passenger, seat, flight_number, aircraft):
         
 def make_flight():
     f = Flight("BA758", Aircraft("G-EUPT","Airbus A-319", num_rows=22, num_seats_per_row=6))
+    f.allocate_seat("1A", "Alicia")
+    f.allocate_seat("2A", "Elizabeth")
     f.allocate_seat("12A", "Federico")
     f.allocate_seat("15F", "Yolanda")
     f.allocate_seat("15E", "Valeria")
     f.allocate_seat("1C", "Sebastian")
     f.allocate_seat("1D", "Ximena")
     print("*** Vuelo creado con sus asientos asignados: ")
-    f.show_seats()
+    #f.show_seats()
     #f._relocate_passenger('12A', '22A')
     return f
 

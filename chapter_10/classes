@@ -69,7 +69,16 @@
         def aircraft_model(self):
             return self._aircraft.model()
 
-    
+3.  El Polimorfismo es una manera de usar diferentes objetos o tipos a traves de una
+    interfase uniforme.
 
+    Esto aplica tnato para objetos como para funciones y otros tipos mas complejos.
+
+    No se aplica como en JAVA, para poder implementarlo solo basta con pasar el objeto
+    a un metodo o funcion y dentro de esta solicitarle al objeto que haga lo que tiene
+    que hacer.
+
+    
+    
 
     
